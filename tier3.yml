@@ -1,0 +1,450 @@
+
+3001_name:정밀의 석궁
+3001_img:\uF2C8
+3001_gold:8000
+3001_mix:2003,2003,2019
+3001_lore1:{dex*10}
+3001_lore2:{skillrange*20%}
+3001_lore3:비전투 10초 지속시 차지되며 다음 기본공격은 1.5배의 피해를 입힘
+
+3002_name:몰아치는 폭풍
+3002_img:\uF2C9
+3002_gold:7500
+3002_mix:2005,2005,2006,2006
+3002_lore1:{attackspeed*60}
+3002_lore2:{dex*4}
+3002_lore3:{str*4}
+3002_lore4:{int*4}
+3002_lore5:첫 기본공격 \uF13C적중시 8초간 최종 {attackspeed*80}% 증가  [쿨다운 60초]
+
+3003_name:생명 약탈자
+3003_img:\uF2CA
+3003_gold:8000
+3003_mix:2005,2005,2006,2008
+3003_lore1:{attackspeed*80}
+3003_lore2:{defence*30}
+3003_lore3:{maxstat*3}
+3003_lore4:일반공격으로 입힌피해의 35% 만큼 흡혈
+
+3004_name:발목 분쇄자
+3004_img:\uF2CB
+3004_gold:7000
+3004_mix:2006,2007,2016
+3004_lore1:{attackspeed*80}
+3004_lore2:{cooldownmul*20}
+3004_lore3:일반공격 \uF13C적중시 {my:lv*0.7}의 피해를 입히고
+3004_lore4:첫 일반공격은 적 이동속도를 2초간 50% 느려지게함 [쿨다운 40초]
+
+3005_name:전도의 크로스 보우
+3005_img:\uF2CC
+3005_gold:7000
+3005_mix:2006,2006,2019
+3005_lore1:{attackspeed*60}
+3005_lore2:{skillrange*20%}
+3005_lore3:{maxstat*3}
+3005_lore4:일반공격 \uF13C적중시 {my:skillrange*8}칸내 적 둘에게 \uF13C적중시 효과를 적용합니다
+
+3006_name:피의 탐식자
+3006_img:\uF2CD
+3006_gold:8000
+3006_mix:2003,2004,2011,2012
+3006_lore1:{str*10}
+3006_lore2:{dex*6}
+3006_lore3:{maxhp*40}
+3006_lore4:{cooldownmul*20}
+3006_lore5:입힌 물리피해의 {20}% 만큼 흡혈
+
+3007_name:각인된 공포
+3007_img:\uF2CE
+3007_gold:7000
+3007_mix:2005,2005,2011,2012
+3007_lore1:{maxhp*40}
+3007_lore2:{cooldownmul*30}
+3007_lore3:{maxstat*5}
+3007_lore4:스킬 사용후 다음 일반공격 \uF13C적중시 {my:maxstat*70%}의 추가 피해를 입힘
+
+3008_name:분쇄자
+3008_img:\uF2CF
+3008_gold:8000
+3008_mix:2004,2011,2012,2019
+3008_lore1:{str*12}
+3008_lore2:{maxhp*50}
+3008_lore3:{cooldownmul*30}
+3008_lore4:{skillsize*20%}
+
+3009_name:광전사의 대검
+3009_img:\uF2D0
+3009_gold:7000
+3009_mix:2005,2005,2007
+3009_lore1:{attackspeed*30}
+3009_lore2:{cooldownmul*30}
+3009_lore3:{maxstat*8}
+3009_lore4:현재 체력이 낮을수록 데미지가 30%까지 증가 [남은체력 30%에서 최대]
+
+3010_name:맹격
+3010_img:\uF2D1
+3010_gold:7000
+3010_mix:2011,2012,2004,2003
+3010_lore1:{maxhp*40}
+3010_lore2:{cooldownmul*20}
+3010_lore3:{str*3}
+3010_lore4:{dex*3}
+3010_lore5:체력이 30%이하가 되면 {my:maxhp*0.5}%의 보호막을 5초간 얻음 [쿨다운 180초]
+
+3011_name:죽음의 손짓
+3011_img:\uF2D2
+3011_gold:8000
+3011_mix:2003,2003,2011,2011
+3011_lore1:{dex*10}
+3011_lore2:{cooldownmul*20}
+3011_lore3:적을 1.5초내에 다른스킬로 2회 공격하면 대상이 잃은체력의 20% 고정 피해 추가 [쿨다운 30초]
+
+3012_name:선고
+3012_img:\uF2D3
+3012_gold:7500
+3012_mix:2002,2003,2003,2011
+3012_lore1:{dex*10}
+3012_lore2:{int*5}
+3012_lore3:{cooldownmul*25}
+3012_lore4:내가 적에게 피해를 입힌후 전투가 종료되면 입힌 피해의 12%만큼 추가로 마법피해를줌
+
+3013_name:부식하는 맹독
+3013_img:\uF2D4
+3013_gold:7000
+3013_mix:2002,2003,2016
+3013_lore1:{int*10}
+3013_lore2:{dex*6}
+3013_lore3:{skillduration*20%}
+3013_lore4:적에게 물리피해를 입힌후 6초간 적의 방어력이 {defence*30}% 감소 [중첩되지 않음]
+
+3014_name:기회
+3014_img:\uF2D5
+3014_gold:6000
+3014_mix:2005,2005,2011
+3014_lore1:{cooldownmul*15}
+3014_lore2:{maxstat*10}
+3014_lore3:은신에서 벗어난후 3초간 입히는 피해 30%만큼 추가 물리피해
+
+3015_name:해체의 장갑
+3015_img:\uF2D6
+3015_gold:8000
+3015_mult:false
+3015_mix:2016,2020,2020
+3015_lore1:{skillduration*50%}
+3015_lore2:{bufftime*30%}
+3015_lore3:적에게 입히는 지속피해가 30% 강력해짐
+
+3016_name:마력 담배
+3016_img:\uF2D7
+3016_gold:7000
+3016_mix:2002,2013,2015,2011
+3016_lore1:{mpheal*1}
+3016_lore2:{int*15}
+3016_lore3:{cooldownmul*20}
+3016_lore4:{maxmp*20}
+3016_lore5:마나가 {my:maxmp*30%} 이하가되면 {my:maxmp*30%}%의 마나를 즉시 회복 [쿨다운 60초]
+
+3017_name:재정렬
+3017_img:\uF2D8
+3017_gold:7000
+3017_mix:2002,2011,2013,2013
+3017_lore1:{maxmp*50}
+3017_lore2:{int*5}
+3017_lore3:{cooldownmul*30}
+3017_lore4:적에게 마법피해를 입힌후 3초후 {my:int*30%} 피해를 입힘
+
+3018_name:지혜를 삼키는 고서
+3018_img:\uF2D9
+3018_gold:7000
+3018_mix:2002,2011,2010,2020
+3018_lore1:{int*-5}
+3018_lore2:{cooldownmul*30}
+3018_lore3:{magicdefence*30}
+3018_lore4:적에게 마법피해를 입히면 10초간 그피해의 30%만큼 스텍이 쌓입니다
+3018_lore5:60초마다 적에게 피해를 입을때 8초간 스택만큼 보호막을 얻습니다
+
+3019_name:금단의 도서
+3019_img:\uF2DA
+3019_gold:8000
+3019_mix:2002,2012,2013,2016
+3019_lore1:{int*10}
+3019_lore2:{maxhp*30}
+3019_lore3:{maxmp*20}
+3019_lore4:적에게 마법피해를 입히면 5초간 50%의 치유감소를 줍니다
+
+3020_name:룬소드
+3020_img:\uF2DB
+3020_gold:8000
+3020_mix:2002,2006,2012,2014
+3020_lore1:{int*10}
+3020_lore2:{attackspeed*50}
+3020_lore3:{maxhp*30}
+3020_lore4:모든 피해 흡혈 10%
+3020_lore5:적에게 일반공격 \uF13C적중시 지능의 50% 피해를 추가로 입힙니다
+
+3021_name:애너자이저
+3021_img:\uF2DC
+3021_gold:8000
+3021_mix:2004,2006,2012,2012
+3021_lore1:{maxhp*60}
+3021_lore2:{attackspeed*30}
+3021_lore3:{str*3}
+3021_lore4:{hpheal*1.5}
+3021_lore5:일반공격 \uF13C적중시 내 최대체력의 2% 피해를 입힙니다
+
+3022_name:넘쳐나는 생명
+3022_img:\uF2DD
+3022_gold:8000
+3022_mix:2007,2011,2012,2012
+3022_lore1:{maxhp*50}
+3022_lore2:{attackspeed*20}
+3022_lore3:{cooldownmul*20}
+3022_lore4:{skillsize*20%}
+3022_lore5:적에게 피해를 입힐때마다 10초간 최대 체력이 5% 상승합니다 [같은 스킬은 1초당 한번]
+
+3023_name:재생검
+3023_img:\uF2DE
+3023_gold:8000
+3023_mix:2008,2012,2014,2014
+3023_lore1:{maxhp*30}
+3023_lore2:{hpheal*3}
+3023_lore3:{defence*10}
+3023_lore4:체력이 30%이하가 되면 5초간 체력을 30% 회복합니다 [쿨다운 120초]
+
+3024_name:가로막는 심장
+3024_img:\uF2DF
+3024_gold:10000
+3024_mix:2007,2009,2008,2012
+3024_lore1:{maxhp*50}
+3024_lore2:{defence*30}
+3024_lore3:{magicdefence*30}
+3024_lore4:{cooldownmul*20}
+3024_lore5:적에게 1.5초내에 피해를 3회 주면 1초간 기절시킵니다 [쿨다운 30초]
+
+3025_name:갑옷 약탈자
+3025_img:\uF2E0
+3025_gold:7000
+3025_mix:2011,2012,2008,2009
+3025_lore1:{maxhp*50}
+3025_lore2:{cooldownmul*15}
+3025_lore3:내가 공격한 적의 방어력/마법방어력을 5초간 {my:lv+5} 훔쳐옵니다 [중첩불가]
+
+3026_name:체력 발사기
+3026_img:\uF2E1
+3026_gold:8000
+3026_mix:2011,2013,2014,2018
+3026_lore1:{maxmp*80}
+3026_lore2:{cooldownspeed*20%}
+3026_lore3:{cooldownmul*30}
+3026_lore4:{hpheal*1}
+3026_lore5:아군을 회복시킬때 회복량의 {20}% 만큼 대상 주변 {8}칸에 마법 피해를 줍니다
+
+3027_name:역천의 크리스탈
+3027_img:\uF2E2
+3027_gold:8000
+3027_mix:2002,2013,2016
+3027_lore1:{maxmp*30}
+3027_lore2:{int*8}
+3027_lore3:{cooldownmul*30}
+3027_lore4:{bufftime*20%}
+3027_lore5:120초마다 10칸내 자신을 제외한 아군의 체력이 30% 이하로 내려가는 피해를 받았다면
+3027_lore6:피해를 무효화하고 체력을 30%로 되돌립니다
+
+3028_name:수호의 상징
+3028_img:\uF2E3
+3028_gold:8000
+3028_mix:2010,2011,2013,2015
+3028_lore1:{maxhp*30}
+3028_lore2:{mpheal*1}
+3028_lore3:{cooldownmul*10}
+3028_lore4:주변 아군의 방어력/마법방어력을 {defence*30} 상승시킵니다
+3028_lore5:3초마다 주변 아군이 3초간 지속되는 {my:lv*1} 의 보호막을 얻습니다
+
+3029_name:순수
+3029_img:\uF2E4
+3029_gold:8000
+3029_mix:2002,2011,2013,2015,2016
+3029_lore1:{maxmp*60}
+3029_lore2:{mpheal*1}
+3029_lore3:{cooldownmul*30}
+3029_lore4:{int*10}
+3029_lore5:{bufftime*30%}
+
+3030_name:주시자
+3030_img:\uF2E5
+3030_gold:7000
+3030_mix:2013,2013,2015,2015
+3030_lore1:{maxmp*50}
+3030_lore2:{mpheal*5}
+3030_lore3:쉬프트를 누르고 있으면 초당 마나를 2%소모하여 바라보는 아군의 체력을 최대마나의 1%만큼 회복시킵니다 
+
+3031_name:마력거부
+3031_img:\uF2E6
+3031_gold:8000
+3031_mix:2009,2009,2012,2012
+3031_lore1:{maxhp*50}
+3031_lore2:{magicdefence*50}
+3031_lore3:{cooldownmul*10}
+3031_lore4:받는 마법피해가 15% 감소합니다
+
+3032_name:기사의 심장
+3032_img:\uF2E7
+3032_gold:8000
+3032_mix:2008,2008,2012,2012
+3032_lore1:{maxhp*80}
+3032_lore2:{defence*80}
+3032_lore3:{cooldownmul*20}
+
+3033_name:정신 저항기
+3033_img:\uF2E8
+3033_gold:8000
+3033_mix:2012,2012,2009,2014
+3033_lore1:{maxhp*60}
+3033_lore2:{magicdefence*50}
+3033_lore3:기절중 받는 피해가 30% 감소합니다
+
+3034_name:거인의 안장
+3034_img:\uF2E9
+3034_gold:8000
+3034_mix:2012,2012,2019,2019
+3034_lore1:{maxhp*50}
+3034_lore2:{cooldownmul*10}
+3034_lore3:{movespeed*-10%}
+3034_lore4:크기가 20% 커집니다
+3034_lore5:최대 체력이 {maxhp*20%} 증가합니다
+
+3035_name:솔로의 진노
+3035_img:\uF2EA
+3035_gold:8000
+3035_mix:2009,2009,2012,2014
+3035_lore1:{maxhp*100}
+3035_lore2:{cooldownmul*10}
+3035_lore3:주변이 아군이 없을때 살아있는 적 하나당
+3035_lore4:{defence*8},{magicdefence*8},{hpheal*1}
+
+3036_name:조용한 사냥꾼
+3036_img:\uF2EB
+3036_gold:8000
+3036_mix:2019,2019,2018
+3036_mult:false
+3036_lore1:{skillrange*30%}
+3036_lore2:{cooldownmul*30}
+3036_lore3:{cooldownspeed*20%}
+3036_lore4:대상과 거리 1블럭당 데미지 1% 증가
+
+3037_name:화력변태
+3037_img:\uF2EC
+3037_gold:8000
+3037_mix:2019,2019,2019,2019
+3037_lore1:{skillsize*30%}
+3037_lore2:{cooldownmul*15}
+3037_lore3:5킬 달성시 {skillsize*25%} 추가증가
+
+3038_name:시간교차
+3038_img:\uF2ED
+3038_gold:8000
+3038_mix:2016,2020
+3038_mult:false
+3038_lore1:{skillduration*70%}
+3038_lore2:{cooldownmul*-30}
+3038_lore3:{attackspeed*-50}
+
+3039_name:시간가속
+3039_img:\uF2EE
+3039_gold:12000
+3039_mult:false
+3039_mix:2016,2017,2018,2020
+3039_lore1:{cooldownmul*50}
+3039_lore2:{cooldownspeed*50%}
+3039_lore3:{movespeed*20%}
+3039_lore4:{attackspeed*50}
+3039_lore5:{skillduration*20%}
+3039_lore6:{skillspeed*20%}
+3039_lore7:{delay*-10%}
+3039_lore8:{backdelay*-10%}
+
+3040_name:적응
+3040_img:\uF2EF
+3040_gold:7000
+3040_mult:false
+3040_mix:2005,2005,2005
+3040_lore1:{maxstat*20}
+3040_lore2:{cooldownmul*10}
+
+3041_name:지능의 비약
+3041_img:\uF2F0
+3041_gold:7800
+3041_mult:false
+3041_mix:2002,2002,2002,2002
+3041_lore1:{int*18}
+3041_lore2:{cooldownmul*30}
+3041_lore3:최종 {int*15}% 상승
+
+3042_name:민첩의 비약
+3042_img:\uF2F1
+3042_gold:8600
+3042_mult:false
+3042_mix:2003,2003,2003,2003
+3042_lore1:{dex*18}
+3042_lore2:{cooldownmul*10}
+3042_lore3:{skillrange*20%}
+3042_lore4:최종 {dex*15}% 상승
+
+3043_name:힘의 비약
+3043_img:\uF2F2
+3043_gold:7000
+3043_mult:false
+3043_mix:2004,2004,2004,2004
+3043_lore1:{str*18}
+3043_lore2:{cooldownmul*10}
+3043_lore3:{maxhp*20}
+3043_lore4:최종 {str*15}% 상승
+
+3044_name:주문 회전
+3044_img:\uF2F3
+3044_gold:8000
+3044_mult:false
+3044_mix:2002,2002,2018
+3044_lore1:{int*12}
+3044_lore2:{skillcount*10%}
+3044_lore3:적에게 마법피해를 주면 모든 스킬의 쿨다운이 1초 감소합니다 {쿨다운 5초}
+
+3045_name:연산보주
+3045_img:\uF2F4
+3045_gold:8000
+3045_mult:false
+3045_mix:2002,2002,2018
+3045_lore1:{int*10}
+3045_lore2:{cooldownspeed*40%}
+
+3046_name:연사 장치
+3046_img:\uF2F5
+3046_gold:9000
+3046_mix:2005,2018,2019
+3046_lore1:{skillcount*80%}
+3046_lore2:{cooldownspeed*30%}
+3046_lore3:{maxstat*3}
+
+3047_name:
+3047_img:
+3047_gold:
+3047_mix:
+3047_lore1:
+
+3048_name:
+3048_img:
+3048_gold:
+3048_mix:
+3048_lore1:
+
+3049_name:
+3049_img:
+3049_gold:
+3049_mix:
+3049_lore1:
+
+3050_name:
+3050_img:
+3050_gold:
+3050_mix:
+3050_lore1:

@@ -295,12 +295,13 @@
             const roundIcon = `<img src="./tier/round.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
             const killIcon = `<img src="./tier/kill.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
             const levelIcon = `<img src="./tier/lv.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
+            const onHitIcon = `<img src="./tier/onhit.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
             const cooldownIcon = `<img src="./tier/cooldown.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
             const pastelRed = "#ff6b6b";
             
             const lores = item.lore ? item.lore.map(l => {
                 // 텍스트 내의 \uF13A를 deathIcon 태그로 치환 (g 플래그로 전체 치환)
-                let fixedText = l.replace(/\\uF13A/g, deathIcon).replace(/\\uF139/g, roundIcon).replace(/\\uF107/g, levelIcon).replace(/\\uF13B/g, killIcon).replace(/\\uF10A/g, cooldownIcon);
+                let fixedText = l.replace(/\\uF13A/g, deathIcon).replace(/\\uF139/g, roundIcon).replace(/\\uF107/g, levelIcon).replace(/\\uF13B/g, killIcon).replace(/\\uF13C/g, onHitIcon).replace(/\\uF10A/g, cooldownIcon);
                 fixedText = fixedText.replace(/\{([^}]+)\}/g, (match, p1) => {
                     let processed = p1;
 
