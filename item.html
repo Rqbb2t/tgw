@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Encyclopedia - Professional UI</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --sidebar-bg: #1e1e1e;
+            --card-bg: #2d2d2d;
+            --text-color: #e0e0e0;
+            --accent-color: #f39c12;
+            --border-color: #444;
+            --sidebar-width: 300px;
+            --highlight-color: rgba(243, 156, 18, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        /* 사이드바 스타일 및 스크롤바 제거 */
+        aside {
+            width: var(--sidebar-width);
+            min-width: var(--sidebar-width);
+            background-color: var(--sidebar-bg);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            transition: margin-left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            /* 스크롤바 숨기기 (표준) */
+            scrollbar-width: none; 
+            /* 스크롤바 숨기기 (IE/Edge) */
+            -ms-overflow-style: none; 
+        }
+
+        /* 스크롤바 숨기기 (Chrome/Safari) */
+        aside::-webkit-scrollbar {
+            display: none;
+        }
+
+        aside.collapsed {
+            margin-left: calc(var(--sidebar-width) * -1);
+        }
+
+        /* 사이드바 내 토글 버튼 (닫기 <) */
+        .sidebar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .close-btn {
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 5px 12px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .close-btn:hover {
+            background: var(--card-bg);
+        }
+
+        /* 외부에 뜨는 열기 버튼 (열기 >) */
+        .open-btn {
+            position: fixed;
+            left: 10px;
+            top: 20px;
+            z-index: 99;
+            background: var(--sidebar-bg);
+            border: 1px solid var(--accent-color);
+            color: var(--accent-color);
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none; /* 기본은 숨김 */
+            font-weight: bold;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        aside.collapsed + main .open-btn {
+            display: block;
+        }
+
+        header h1 {
+            font-size: 1.3rem;
+            color: var(--accent-color);
+            margin: 0;
+        }
+
+        .filter-group { margin-bottom: 25px; }
+
+        .filter-title {
+            font-weight: bold; font-size: 0.85rem; margin-bottom: 12px;
+            color: #888; text-transform: uppercase;
+            border-bottom: 1px solid var(--border-color); padding-bottom: 5px;
+        }
+
+        input[type="text"], select {
+            width: 100%; padding: 10px; background: #121212; color: white;
+            border: 1px solid var(--border-color); border-radius: 4px; box-sizing: border-box;
+        }
+
+        .checkbox-list { display: flex; flex-direction: column; gap: 8px; }
+
+        .checkbox-item { 
+            display: flex; 
+            align-items: center; 
+            font-size: 0.85rem; 
+            cursor: pointer;
+            padding: 4px 0;
+            transition: transform 0.1s;
+        }
+
+        .checkbox-item:hover { color: var(--accent-color); transform: translateX(5px); }
+        .checkbox-item input { margin-right: 10px; cursor: pointer; }
+
+        /* 메인 콘텐츠 영역 */
+        main { 
+            flex: 1; 
+            padding: 30px; 
+            overflow-y: auto; 
+            background-color: var(--bg-color);
+            transition: padding-left 0.4s;
+        }
+
+        .item-grid {
+            display: grid; 
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); 
+            gap: 20px;
+        }
+
+        .item-card {
+            background: var(--card-bg); border-radius: 8px; padding: 18px;
+            border-left: 5px solid var(--accent-color); transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .item-card:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+
+        .item-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+
+        .item-icon {
+            width: 50px; height: 50px; background: #1a1a1a;
+            border-radius: 4px; object-fit: contain; border: 1px solid #444;
+        }
+
+        .item-name { font-size: 1.1rem; font-weight: bold; color: var(--accent-color); }
+
+        .gold { color: #f1c40f; font-weight: bold; }
+
+        .item-lore {
+            margin-top: 10px; padding-top: 10px; border-top: 1px solid #444;
+            font-size: 0.85rem; line-height: 1.6;
+        }
+
+        /* 아이콘 스타일 통일 */
+        .lore-icon, .stat-icon { 
+            width: 18px; 
+            height: 18px;
+            vertical-align: middle; 
+            margin-right: 4px; 
+            margin-bottom: 4px; 
+        }
+
+        .stat-part { color: #bdc3c7; font-weight: normal; }
+        .lore-row { color: var(--text-color); }
+
+        .mix-tag {
+            display: inline-block; background: #444; padding: 2px 6px;
+            border-radius: 3px; margin: 2px; cursor: pointer; font-size: 0.75rem;
+        }
+
+        .highlight-active {
+            background-color: var(--highlight-color) !important;
+            outline: 2px solid var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+
+<aside id="sidebar">
+    <div class="sidebar-header">
+        <header><h1>Item Library</h1></header>
+        <button class="close-btn" onclick="toggleSidebar()"> < </button>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">Search</div>
+        <input type="text" id="searchInput" placeholder="이름 또는 설명 검색..." oninput="updateView()">
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">Tier</div>
+        <select id="tierSelect" onchange="updateView()">
+            <option value="all">모든 등급</option>
+        </select>
+    </div>
+
+    <div class="filter-group">
+        <div class="filter-title">Keywords</div>
+        <div class="checkbox-list" id="keywordFilters"></div>
+    </div>
+</aside>
+
+<main>
+    <button class="open-btn" id="openBtn" onclick="toggleSidebar()"> > </button>
+    <div class="item-grid" id="itemGrid"></div>
+</main>
+
+<script>
+    let itemData = {};
+    const tierColors = { 1: "#95a5a6", 2: "#2ecc71", 3: "#3498db", 4: "#9b59b6", 5: "#e74c3c" };
+    
+    const statNames = {
+        'lv':'레벨', 'maxhp':'최대체력', 'hpheal':'체력재생',
+        'maxmp':'최대마나', 'mpheal':'마나재생', 'attackspeed':'공격속도',
+        'magicdefence':'마법저항력', 'defence':'방어력', 'luck':'행운',
+        'str':'힘', 'dex':'민첩', 'int':'지능', 'cooldownmul':'스킬가속',
+        'cooldownspeed':'쿨다운회복', 'timespeed':'시간가속', 'movespeed':'이동속도',
+        'delay':'선딜레이', 'backdelay':'후딜레이', 'bufftime':'버프지속시간',
+        'skillcount':'스킬개수', 'skillduration':'스킬지속시간', 'skillrange':'스킬사거리',
+        'skillsize':'스킬크기', 'skillspeed':'스킬속도', 'gold':'돈', 'maxstat':'주스텟',
+    };
+
+    function toggleSidebar() {
+        const sidebar = document.getElementById('sidebar');
+        sidebar.classList.toggle('collapsed');
+    }
+
+    function replaceIcons(text) {
+        if (!text) return "";
+        const icons = {
+            "\\uF13A": "./tier/death.png", "\\uF139": "./tier/round.png",
+            "\\uF107": "./tier/lv.png", "\\uF13B": "./tier/kill.png",
+            "\\uF13C": "./tier/onhit.png", "\\uF10A": "./tier/cooldown.png"
+        };
+        let result = text;
+        Object.keys(icons).forEach(key => {
+            const regex = new RegExp(key.replace(/\\/g, "\\\\"), "g");
+            result = result.replace(regex, `<img src="${icons[key]}" class="lore-icon">`);
+        });
+        return result;
+    }
+
+    function getStatIconTag(key) {
+        if (statNames[key]) {
+            return `<img src="tier/${key}.png" class="stat-icon" onerror="this.style.display='none'">`;
+        }
+        return "";
+    }
+
+    function processLoreLine(line) {
+        let processedLine = replaceIcons(line);
+
+        processedLine = processedLine.replace(/\{my:(\w+)([*+-])([^}]+)\}/g, (match, key, operator, value) => {
+            return `<span class="stat-part">${getStatIconTag(key)}${statNames[key] || key} ${operator} ${value}</span>`;
+        });
+
+        processedLine = processedLine.replace(/\{(\w+)\*([^}]+)\}/g, (match, key, value) => {
+            const sign = parseFloat(value) >= 0 ? "+" : "";
+            return `<span class="stat-part">${getStatIconTag(key)}${statNames[key] || key} ${sign}${value}</span>`;
+        });
+
+        processedLine = processedLine.replace(/\{(\d+(?:\.\d+)?%?)\}/g, (match, num) => {
+            return `<span class="stat-part">${num}</span>`;
+        });
+
+        return `<span class="lore-row">${processedLine}</span>`;
+    }
+
+    async function init() {
+        try {
+            const response = await fetch('total_items.json');
+            itemData = await response.json();
+            setupFilters();
+            updateView();
+        } catch (e) {
+            document.getElementById('itemGrid').innerHTML = "데이터 로딩 실패.";
+        }
+    }
+
+    function setupFilters() {
+        const tierSelect = document.getElementById('tierSelect');
+        const tiers = [...new Set(Object.values(itemData).map(i => i.tier))].sort((a, b) => a - b);
+        tiers.forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t; opt.innerText = `Tier ${t}`;
+            tierSelect.appendChild(opt);
+        });
+
+        const keywordContainer = document.getElementById('keywordFilters');
+        Object.entries(statNames).forEach(([key, name]) => {
+            const iconHtml = getStatIconTag(key);
+            const label = document.createElement('label');
+            label.className = 'checkbox-item';
+            label.innerHTML = `<input type="checkbox" value="${key}" onchange="updateView()"> ${iconHtml} ${name}`;
+            keywordContainer.appendChild(label);
+        });
+    }
+
+    function updateView() {
+        const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+        const tierFilter = document.getElementById('tierSelect').value;
+        const selectedKeywords = Array.from(document.querySelectorAll('#keywordFilters input:checked')).map(cb => cb.value);
+        displayItems(tierFilter, searchTerm, selectedKeywords);
+    }
+
+    function displayItems(tierFilter, searchTerm, selectedKeywords) {
+        const grid = document.getElementById('itemGrid');
+        grid.innerHTML = '';
+
+        const filtered = Object.entries(itemData).filter(([id, info]) => {
+            const matchTier = (tierFilter === 'all' || info.tier == tierFilter);
+            const matchSearch = info.name.toLowerCase().includes(searchTerm) || 
+                              (info.lore && info.lore.join(' ').toLowerCase().includes(searchTerm));
+            
+            let matchKeywords = true;
+            if (selectedKeywords.length > 0) {
+                const loreString = info.lore ? info.lore.join(' ') : "";
+                matchKeywords = selectedKeywords.some(kw => loreString.includes(`{${kw}*`) || loreString.includes(`{my:${kw}`));
+            }
+            return matchTier && matchSearch && matchKeywords;
+        });
+
+        filtered.forEach(([id, info]) => {
+            const card = document.createElement('div');
+            card.className = 'item-card';
+            card.id = 'item-' + id;
+            card.style.borderLeftColor = tierColors[info.tier] || '#f39c12';
+            
+            const mixHtml = info.mix ? `<div style="margin-top:10px;">${info.mix.map(m => `<span class="mix-tag" onclick="scrollToItem(${m})">#${m}</span>`).join('')}</div>` : '';
+            const loreHtml = info.lore ? `<div class="item-lore">${info.lore.map(line => processLoreLine(line)).join('<br>')}</div>` : '';
+
+            card.innerHTML = `
+                <div class="item-header">
+                    <img class="item-icon" src="items/${id}.png" onerror="this.src='https://via.placeholder.com/64?text=No+Img'">
+                    <div>
+                        <div class="item-name">${info.name}</div>
+                        <div style="font-size:0.75rem; color:#888;">ID: #${id} | Tier ${info.tier}</div>
+                    </div>
+                </div>
+                <div style="font-size:0.9rem;">가격: <span class="gold">${(info.gold || 0).toLocaleString()} G</span></div>
+                ${mixHtml}${loreHtml}
+            `;
+            grid.appendChild(card);
+        });
+    }
+
+    function scrollToItem(id) {
+        const el = document.getElementById('item-' + id);
+        if (el) {
+            el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            el.classList.add('highlight-active');
+            setTimeout(() => el.classList.remove('highlight-active'), 2000);
+        }
+    }
+
+    init();
+</script>
+</body>
+</html>
