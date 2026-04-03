@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동방성배록 캐릭터 위키</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --sidebar-width: 300px;
+            --primary-color: #3d8bff;
+            --bg-color: #121416;
+            --card-bg: #1e2125;
+            --text-main: #f8f9fa; 
+            --text-muted: #adb5bd;
+            --border-color: #343a40;
+            --skill-bg: #2c3034;
+            --stat-bg: #25292d;
+            --highlight-gold: #ffcc00;
+            --pastel-red: #ffb3ba;
+            --ultimate-color: #ff4785; /* 얼티밋 전용 색상 */
+        }
+
+        body, h1, h2, h3, h4, h5, h6, p, span, div, label, input {
+            color: var(--text-main) !important;
+        }
+        
+        .text-muted, .stat-label, .skill-cooldown, .italic {
+            color: var(--text-muted) !important;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background-color: var(--bg-color);
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .char-name-base { color: #9ca3af !important; font-weight: 700; }
+        .char-name-highlight { color: var(--text-main) !important; font-weight: 700; }
+
+        .lore-icon { 
+            width: 1.1em; 
+            height: 1.1em;
+            vertical-align: middle; 
+            margin-left: 2px;
+            margin-right: 2px; 
+        }
+
+        .stat-icon { 
+            width: 1.1em; 
+            height: 1.1em;
+            vertical-align: middle; 
+            margin-bottom: 4px;
+            image-rendering: pixelated;
+        }
+
+        #sidebar {
+            width: var(--sidebar-width);
+            background: var(--card-bg);
+            border-right: 1px solid var(--border-color);
+            padding: 2rem 1.5rem;
+            position: fixed; height: 100vh; overflow-y: auto; z-index: 100;
+        }
+
+        #content { margin-left: var(--sidebar-width); flex: 1; padding: 2rem; }
+
+        .char-card {
+            background: var(--card-bg); border: 1px solid var(--border-color);
+            border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        /* 얼티밋 스킬 배지 스타일 */
+        .ultimate-badge {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            background: rgba(255, 71, 133, 0.15);
+            border: 1px solid var(--ultimate-color);
+            color: var(--ultimate-color) !important;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+        }
+
+        .char-img-wrapper {
+            width: 100%; aspect-ratio: 1 / 1;
+            background-color: var(--stat-bg);
+            border-radius: 12px; overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .char-img { width: 100%; height: 100%; object-fit: cover; }
+        .char-hp-display {
+            font-size: 1.2rem; font-weight: 700; text-align: center;
+            padding: 10px 0; color: #ff4b4b !important;
+            border-bottom: 1px solid var(--border-color); margin-bottom: 10px;
+        }
+
+        .stat-list {
+            background: var(--stat-bg); padding: 15px;
+            border-radius: 10px; display: flex; flex-direction: column; gap: 5px;
+        }
+
+        /* 스텟 정렬 수정: 이름 우측 정렬 / 값 좌측 정렬 */
+        .stat-row {
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            font-size: 0.85rem;
+            border-bottom: 1px solid rgba(255,255,255,0.05); 
+            padding-bottom: 2px;
+        }
+        .stat-label { 
+            flex: 1; 
+            text-align: right; 
+            display: flex; 
+            justify-content: flex-end; 
+            align-items: center;
+            padding-right: 0;
+            min-width: 0; 
+        }
+        .stat-divider { margin: 0 10px; opacity: 0.4; font-weight: 300; }
+        .stat-val { 
+            flex: 1; 
+            text-align: left; 
+            font-weight: 700;
+            min-width: 0;
+        }
+
+        .skill-item {
+            background: var(--skill-bg); border: 1px solid var(--border-color);
+            border-radius: 10px; padding: 1.2rem; margin-bottom: 1rem;
+            display: flex; gap: 1.2rem;
+        }
+
+        .skill-img { width: 60px; height: 60px; border-radius: 8px; object-fit: cover; }
+        .skill-header { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+        .skill-name { color: var(--primary-color) !important; font-weight: 700; margin: 0; }
+        .skill-cooldown { font-size: 0.75rem; border: 1px solid var(--border-color); padding: 2px 8px; border-radius: 4px; }
+        .highlight-text { color: var(--highlight-gold) !important; font-weight: 700; }
+        .skill-lore { font-size: 0.9rem; line-height: 1.6; margin-top: 0.5rem; opacity: 0.9; }
+
+        .no-skill-data {
+            color: var(--pastel-red) !important;
+            font-size: 0.9rem;
+            padding: 1rem;
+            border: 1px dashed var(--pastel-red);
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .hidden { display: none !important; }
+        hr { border-top: 1px solid var(--border-color); opacity: 0.2; }
+    </style>
+</head>
+<body>
+
+<aside id="sidebar">
+    <h4 class="fw-bold mb-4" style="color: var(--primary-color) !important;">Wiki Search</h4>
+    <div class="mb-4">
+        <label class="form-label small fw-bold">NAME</label>
+        <input type="text" id="nameSearch" class="form-control form-control-sm" placeholder="검색..." oninput="applyFilters()">
+    </div>
+    <div id="tagFilters" class="mb-4">
+        <label class="form-label small fw-bold mb-2">TAGS</label>
+    </div>
+    <button class="btn btn-outline-primary btn-sm w-100" onclick="resetFilters()">초기화</button>
+</aside>
+
+<main id="content">
+    <div id="characterContainer" class="row"></div>
+</main>
+
+<script>
+    const statNames = {
+        'lv':'레벨', 'hp':'최대체력', 'hpheal':'체력재생',
+        'mp':'최대마나', 'mpheal':'마나재생', 'attackspeed':'공격속도',
+        'magicdefence':'마법저항력', 'defence':'방어력', 'luck':'행운',
+        'str':'힘', 'dex':'민첩', 'int':'지능', 'cooldown':'스킬가속',
+        'cooldownspeed':'쿨다운회복', 'timespeed':'시간가속', 'movespeed':'이동속도',
+        'delay':'선딜레이', 'backdelay':'후딜레이', 'bufftime':'버프지속시간',
+        'skillcount':'스킬개수', 'skillduration':'스킬지속시간', 'skillrange':'스킬사거리',
+        'skillsize':'스킬크기', 'skillspeed':'스킬속도', 'gold':'돈', 'maxstat':'주스텟',
+    };
+
+    let characterData = {};
+
+    function formatCharName(name) {
+        if (!name) return "";
+        if (name.includes('"')) {
+            return name.replace(/(.*?)("(.*?)")(.*)/, (match, before, quoted, inside, after) => {
+                const b = before ? `<span class="char-name-base">${before}</span>` : "";
+                const i = `<span class="char-name-highlight">${inside}</span>`;
+                const a = after ? `<span class="char-name-base">${after}</span>` : "";
+                return b + i + a;
+            });
+        }
+        return `<span class="char-name-base">${name}</span>`;
+    }
+
+    function replaceIcons(text) {
+        if (!text) return "";
+        const icons = {
+            "\\uF13A": "./tier/death.png", "\\uF139": "./tier/round.png",
+            "\\uF107": "./tier/lv.png", "\\uF13B": "./tier/kill.png",
+            "\\uF13C": "./tier/onhit.png", "\\uF10A": "./tier/cooldown.png"
+        };
+        let result = text;
+        Object.keys(icons).forEach(key => {
+            const regex = new RegExp(key.replace(/\\/g, "\\\\"), "g");
+            result = result.replace(regex, `<img src="${icons[key]}" class="stat-icon">`);
+        });
+        return result;
+    }
+
+    function getStatHtml(key, className, includeParentheses = true) {
+        const name = statNames[key] || key;
+        const imgHtml = `<img src="tier/${key}.png" class="${className}" onerror="this.style.display='none'">`;
+        if (includeParentheses) {
+            return `${name} (${imgHtml})`;
+        } else {
+            return `${name}(${imgHtml})`;
+        }
+    }
+
+    function formatLore(text) {
+        if (!text) return "";
+        let processed = replaceIcons(text);
+        processed = processed.replace(/\{(.*?)\}/g, (match, p1) => {
+            let content = p1.trim();
+            content = content.replace(/([+\-*\/])/g, ' $1 ').replace(/\s+/g, ' ');
+
+            Object.keys(statNames).forEach(engKey => {
+                const reg = new RegExp(`\\b${engKey}\\b`, 'g');
+                if (reg.test(content)) {
+                    content = content.replace(reg, getStatHtml(engKey, 'stat-icon', false));
+                }
+            });
+            content = content.replace(/\(([^a-zA-Z가-힣<>="/.]+)\)/g, (m, inner) => inner.trim());
+            return `<span class="highlight-text">${content} </span>`;
+        });
+        return processed;
+    }
+
+    async function init() {
+        try {
+            const res = await fetch('characters.json');
+            characterData = await res.json();
+            renderFilters();
+            renderCharacters();
+        } catch (e) {
+            document.getElementById('characterContainer').innerHTML = `<div class="p-5 text-center text-danger">JSON 로드 실패</div>`;
+        }
+    }
+
+    function renderFilters() {
+        const tags = new Set();
+        Object.values(characterData).forEach(c => c.type?.forEach(t => tags.add(t)));
+        const container = document.getElementById('tagFilters');
+        Array.from(tags).sort().forEach(tag => {
+            const div = document.createElement('div');
+            div.className = 'form-check mb-2';
+            div.innerHTML = `<input class="form-check-input tag-check" type="checkbox" value="${tag}" id="t_${tag}" onchange="applyFilters()"><label class="form-check-label small" for="t_${tag}">${tag}</label>`;
+            container.appendChild(div);
+        });
+    }
+
+    function renderCharacters() {
+        const container = document.getElementById('characterContainer');
+        container.innerHTML = '';
+
+        Object.entries(characterData).forEach(([id, char]) => {
+            const col = document.createElement('div');
+            col.className = 'col-12 char-wrapper';
+            col.dataset.name = char.name;
+            col.dataset.tags = JSON.stringify(char.type || []);
+
+            // 얼티밋 스킬 존재 시 HTML 생성
+            const ultimateHtml = char.ultimate ? `<div class="ultimate-badge">얼티밋 스킬 : ${char.ultimate}</div>` : "";
+
+            let skillsHtml = "";
+            if (!char.skills || char.skills.length === 0) {
+                skillsHtml = `<div class="no-skill-data">입력된 스킬 데이터가 없습니다.</div>`;
+            } else {
+                skillsHtml = char.skills.map((s, index) => {
+                    const sImgPath = `card/${char.code}${index}.png`;
+                    const formattedLore = (s.lore || []).map(line => formatLore(line)).join('<br>');
+                    const formattedCooldown = formatLore(s.cooldown || "");
+
+                    return `
+                        <div class="skill-item">
+                            <img src="${sImgPath}" class="skill-img" onerror="this.style.display='none'">
+                            <div class="skill-body" style="width: 100%;">
+                                <div class="skill-header">
+                                    <h5 class="skill-name">${s.name}</h5>
+                                    <span class="skill-cooldown">CD: ${formattedCooldown}</span>
+                                </div>
+                                <p class="skill-lore">${formattedLore}</p>
+                            </div>
+                        </div>`;
+                }).join('');
+            }
+
+            col.innerHTML = `
+                <div class="card char-card p-4">
+                    ${ultimateHtml}
+                    <div class="row g-4">
+                        <div class="col-md-3">
+                            <div class="char-img-wrapper mb-2">
+                                <img src="card/char/char${id}.png" class="char-img" onerror="this.src='https://via.placeholder.com/300?text=No+Image'">
+                            </div>
+                            <div class="char-hp-display">HP ${char.hp || 0}</div>
+                            <div class="stat-list">
+                                <div class="small fw-bold mb-2 text-muted" style="font-size:0.7rem; text-align:center;">성장치</div>
+                                ${Object.entries(char.stat || {}).map(([k,v]) => `
+                                    <div class="stat-row">
+                                        <span class="stat-label">${getStatHtml(k, 'lore-icon')}</span>
+                                        <span class="stat-divider">|</span>
+                                        <span class="stat-val">${v}</span>
+                                    </div>`).join('')}
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <h2 class="fw-bold mb-1">${formatCharName(char.name)} <span class="text-muted fs-6" style="color:var(--text-muted) !important;">#${id}</span></h2>
+                            <div class="mb-3">
+                                ${(char.type || []).map(t => `<span class="badge bg-primary me-2">${t}</span>`).join('')}
+                            </div>
+                            <p class="small text-muted italic mb-4">${(char.lore || []).join(' / ')}</p>
+                            <hr>
+                            <div class="skill-list">${skillsHtml}</div>
+                        </div>
+                    </div>
+                </div>`;
+            container.appendChild(col);
+        });
+    }
+
+    function applyFilters() {
+        const search = document.getElementById('nameSearch').value.toLowerCase();
+        const selected = Array.from(document.querySelectorAll('.tag-check:checked')).map(c => c.value);
+        document.querySelectorAll('.char-wrapper').forEach(el => {
+            const name = el.dataset.name.toLowerCase();
+            const tags = JSON.parse(el.dataset.tags);
+            const mSearch = name.includes(search);
+            const mTags = selected.length === 0 || selected.every(t => tags.includes(t));
+            el.classList.toggle('hidden', !(mSearch && mTags));
+        });
+    }
+
+    function resetFilters() {
+        document.getElementById('nameSearch').value = '';
+        document.querySelectorAll('.tag-check').forEach(c => c.checked = false);
+        applyFilters();
+    }
+
+    window.onload = init;
+</script>
+</body>
+</html>

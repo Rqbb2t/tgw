@@ -1,0 +1,84 @@
+skill0:§f§l총알탄
+skill0_id:10701
+skill0_img:\uE04C
+skill0_data:reisen_sword
+skill0_type:basic
+skill0_cooldown:0
+
+skill0_lore1:§7{range}칸내 적에게 총알을 발사해 {dmg}물리 피해를 입힙니다
+skill0_lore1_range:{(10+lv*0.4)*skillrange}
+skill0_lore1_dmg:{0.3+dex*(lv*0.1+0.2)}
+skill0_st:attack
+
+
+
+skill1:§f§l리플 비전
+skill1_id:10702
+skill1_img:\uE04D
+skill1_data:reisen_card1
+skill1_type:normal
+skill1_cooldown:{20-lv}
+
+skill1_lore1:§7{range}칸 날아가는 파동을 날려 {dmg}마법피해를 입히고 {silence}초 침묵시킵니다
+skill1_lore1_range:{skillrange*(8+lv*2)}
+skill1_lore1_dmg:{3+int*(0.3*lv+0.5)}
+skill1_lore1_silence:{(2)*bufftime}
+
+skill1_lore_1:시전시간: {casttime}(s)
+skill1_lore_1_casttime:{1*(1-attackspeed)}
+
+skill1_lore_2:크기: {size}(b)
+skill1_lore_2_size:{3*skillsize}
+skill1_st:attack,cc
+
+
+
+skill2:§f§l「월면도탄(루나틱 더블)」
+skill2_id:10703
+skill2_img:\uE04E
+skill2_data:reisen_card2
+skill2_type:normal
+skill2_cooldown:{32-lv*2}
+
+skill2_lore1:§7{duration}초간 평타가 추가로 시전됩니다
+skill2_lore1_duration:{(5+lv+dex*0.2)*bufftime}
+skill2_st:buff
+
+
+
+skill3:§f§l장시「적월하(인프라레드 문)」
+skill3_id:10704
+skill3_img:\uE04F
+skill3_data:reisen_card3
+skill3_type:normal
+skill3_cooldown:{16-lv}
+
+skill3_lore1:§f[\uF13C]§7적중시 {dex*(0.2+lv*0.03)}, 대상 최대체력의 {bonus}%의 고정 피해를 추가로 입힙니다
+skill3_lore2:§f[\uF13C]§7적중시 쿨다운이 {0.4}초 감소합니다
+skill3_lore1_bonus:{0.5+int*(0.05+0.01*lv)}
+
+skill3_lore3:§7{duration}초간 은신하며 이동속도가 {movespeed}% 빨라집니다
+skill3_lore3_duration:{(0.3+0.1*lv)*bufftime}
+skill3_lore3_movespeed:{50+15*lv}
+skill3_st:move,buff,passive
+
+
+skill4:§f§l단시「초단뇌파(X-웨이브)」
+skill4_id:10705
+skill4_img:\uE050
+skill4_data:reisen_card4
+skill4_type:sp
+skill4_cooldown:{180-lv*20}
+
+skill4_lore1:§7{range}칸 앞까지 파동을 날리며 닿은 적에게 {duration}초간 일반 공격을 시전하는 분신을 소환합니다
+skill4_lore1_range:{(10+lv*2)*skillrange}
+skill4_lore1_duration:{(5+lv*2)*skillduration}
+
+skill4_lore_1:§e[#]§7분신의 공격속도는 평타와 같습니다
+
+skill4_lore_2:시전시간: {casttime}(s)
+skill4_lore_2_casttime:{2*(1-attackspeed)}
+
+skill4_lore_3:크기: {size}(b)
+skill4_lore_3_size:{4*skillsize}
+skill4_st:attack,buff

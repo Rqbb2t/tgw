@@ -3,382 +3,185 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Augment Wiki</title>
+    <title>동방성배록 위키피디아</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;500;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-color: #1a1a1a;
-            --card-bg: #2d2d2d;
-            --text-color: #e0e0e0;
-            --accent-color: #ffca28;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --accent-char: #f87171;
+            --accent-item: #fbbf24;
+            --accent-aug: #c084fc;
+            --default-icon: #38bdf8;
         }
 
         body {
+            margin: 0; padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-color);
-            font-family: 'Pretendard', sans-serif;
-            margin: 0;
-            padding: 20px;
+            color: var(--text-main);
+            font-family: 'Noto Sans KR', sans-serif;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            min-height: 100vh; overflow: hidden;
         }
 
-        /* 3열 그리드 레이아웃 */
-        .wiki-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
-            gap: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .header { text-align: center; margin-bottom: 40px; }
+        
+        .lobby-container {
+            display: grid; grid-template-columns: repeat(3, 1fr);
+            gap: 25px; width: 90%; max-width: 1000px;
         }
 
-        /* 카드 스타일 */
-        .card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 15px;
-            cursor: pointer;
-            transition: transform 0.2s;
-            border: 1px solid #444;
-            text-align: center;
+        .wiki-card {
+            background: var(--card-bg); border-radius: 20px;
+            padding: 40px; text-align: center; cursor: pointer;
+            transition: all 0.3s ease; border: 1px solid rgba(255,255,255,0.05);
+            text-decoration: none; color: inherit; /* 링크 스타일 제거 */
         }
 
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-color);
+        .wiki-card i { 
+            font-size: 4rem; margin-bottom: 25px; 
+            color: var(--default-icon); 
+            transition: color 0.3s ease; 
         }
 
-        .card img:first-child { /* 메인 아이템 이미지 */
-            width: 85%;         /* 박스 너비의 85%까지 확대 (원하는 만큼 조절) */
-            max-width: 180px;   /* 너무 커지는 것 방지 */
-            height: auto;       /* 비율 유지 */
-            aspect-ratio: 1 / 1; /* 정사각형 유지 */
-            object-fit: contain;
-            margin-bottom: 5px;
-            transition: transform 0.3s; /* 호버 시 효과를 위해 추가 */
+        /* 각 카드별 호버링 색상 변경 */
+        .char-card:hover { transform: translateY(-10px); border-color: var(--accent-char); }
+        .char-card:hover i { color: var(--accent-char); }
+        .item-card:hover { transform: translateY(-10px); border-color: var(--accent-item); }
+        .item-card:hover i { color: var(--accent-item); }
+        .aug-card:hover { transform: translateY(-10px); border-color: var(--accent-aug); }
+        .aug-card:hover i { color: var(--accent-aug); }
+
+        .char-card.locked {
+            filter: grayscale(1); /* 회색조 처리 */
+            opacity: 0.6;        /* 투명하게 */
+            cursor: not-allowed; /* 금지 마우스 커서 */
         }
 
-        .card:hover img:first-child {
-            transform: scale(1.1); /* 마우스 올리면 이미지만 10% 확대 */
+        /* 하단 업데이트 패널 */
+        .update-trigger {
+            position: fixed; bottom: 0; left: 0; width: 100%;
+            height: 40px; background: rgba(15, 23, 42, 0.95);
+            display: flex; align-items: center; justify-content: center;
+            cursor: pointer; border-top: 2px solid var(--default-icon);
+            z-index: 100;
         }
 
-        /* 티어 이미지 (따로 관리) */
-        .card img:last-child {
-            width: 50px; 
-            height: auto;
-            margin-top: 5px;
-            padding: 0;
+        .update-panel {
+            position: fixed; bottom: -280px;
+            left: 0; width: 100%; height: 260px;
+            background: #1e293b; transition: bottom 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            z-index: 101; padding: 30px; box-sizing: border-box;
+            box-shadow: 0 -10px 40px rgba(0,0,0,0.6);
         }
 
-        /* 모달(상세보기) 스타일 */
-        #modal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.9);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
+        .update-trigger:hover + .update-panel, .update-panel:hover {
+            bottom: 0;
         }
 
-        .modal-content {
-            background: var(--card-bg);
-            width: 80%;
-            max-width: 800px;
-            padding: 40px;
-            border-radius: 12px;
-            position: relative;
-            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        .update-content { max-width: 800px; margin: 0 auto; }
+        .update-item {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
         }
-
-        .close-btn {
-            position: absolute;
-            top: 20px; right: 20px;
-            font-size: 30px;
-            cursor: pointer;
-            color: var(--accent-color);
+        .tag { 
+            background: var(--default-icon); color: #000; font-weight: bold;
+            padding: 2px 8px; border-radius: 4px; font-size: 11px; margin-right: 12px; 
         }
+        .update-date { color: #64748b; font-size: 0.85rem; }
 
-        .lore-list {
-            text-align: left;
-            background: #111;
-            padding: 15px;
-            border-radius: 5px;
-            margin-top: 20px;
+        @media (max-width: 768px) {
+            .lobby-container { grid-template-columns: 1fr; }
+            body { overflow-y: auto; }
         }
     </style>
 </head>
 <body>
-    <h1 style="text-align: center; color: var(--accent-color);">동방성배록 증강 위키</h1>
-    <div style="text-align: center; margin-bottom: 30px;">
-        <input type="text" id="search-input" placeholder="검색어를 입력하세요..." 
-            style="width: 80%; max-width: 500px; padding: 12px 20px; border-radius: 25px; border: 1px solid #444; background: #2d2d2d; color: white; font-size: 1rem; outline: none;">
+
+    <div class="header">
+        <h1>동방성배록 위키피디아</h1>
+        <p>최신 패치와 데이터를 확인하세요.</p>
     </div>
 
-    <div style="text-align: center; margin-bottom: 20px;">
-    <select id="filter-option" style="padding: 8px 15px; border-radius: 20px; background: #2d2d2d; color: white; border: 1px solid #444; outline: none; cursor: pointer;">
-        <option value="all">전체 보기</option>
-        <option value="death">사망 관련</option>
-        <option value="round">라운드 시작 종료 관련</option>
-        <option value="level">레벨 관련</option>
-        <option value="kill">적 처치 관련</option>
-        <option value="onhit">적중시 관련</option>
-    </select>
-
-    <select id="rarity-filter" style="padding: 8px 15px; border-radius: 20px; background: #2d2d2d; color: white; border: 1px solid #444; cursor: pointer;">
-        <option value="all">모든 등급</option>
-        <option value="1">C</option>
-        <option value="2">R</option>
-        <option value="3">SR</option>
-        <option value="4">SSR</option>
-        <option value="5">UR</option>
-        <option value="6">EVENT</option>
-    </select>
-
-    <select id="lucky-filter" style="padding: 8px 15px; border-radius: 20px; background: #2d2d2d; color: white; border: 1px solid #444; cursor: pointer;">
-        <option value="all">행운 관련 옵션</option>
-        <option value="yes">🍀 행운 필요</option>
-        <option value="no">⚪ 행운 불필요</option>
-    </select>
-    </div>
-    
-
-    <div class="wiki-container" id="wiki-container">
+    <div class="lobby-container">
+        <div class="wiki-card char-card locked" onclick="navigateTo('character.html',true)">
+            <i class="fas fa-users"></i>
+            <h2>캐릭터 위키</h2>
         </div>
 
-    <div id="modal">
-        <div class="modal-content" id="modal-content">
-            <span class="close-btn" onclick="closeModal()">&times;</span>
-            <div id="detail-view"></div>
+        <div class="wiki-card item-card" onclick="navigateTo('item.html')">
+            <i class="fas fa-box-open"></i>
+            <h2>아이템 위키</h2>
+        </div>
+
+        <div class="wiki-card aug-card" onclick="navigateTo('augment.html')">
+            <i class="fas fa-wand-magic-sparkles"></i>
+            <h2>증강 위키</h2>
+        </div>
+    </div>
+
+    <div class="update-trigger">
+        <span><i class="fas fa-chevron-up"></i> 최근 업데이트 내역</span>
+    </div>
+
+    <div class="update-panel">
+        <div class="update-content">
+            <h3 style="margin-top:0;"><i class="fas fa-history"></i> Patch Notes</h3>
+            <div id="updateList">
+                </div>
         </div>
     </div>
 
     <script>
-        let allData = {};
+        // 1. 업데이트 텍스트 데이터 변수
+        //{ tag: "SYSTEM", text: "로비 이동 경로 및 데이터 렌더링 함수 최적화", date: "2026.04.02" }
+        const updateData = [
+        ];
 
-        async function loadWiki() {
-            try {
-                const response = await fetch('augment.json');
-                allData = await response.json();
-                renderCards(allData); // 초기 렌더링
-            } catch (err) {
-                console.error("데이터 로드 실패:", err);
-            }
-        }
-        
-        // 1. 등급별 색상 매핑 (CSS 변수나 헥사코드 활용)
-        const rarityColors = {
-            1: "#888888", // 회백색
-            2: "#006400", // 진녹색
-            3: "#5d8aa8", // 옅은 청색 (에어포스 블루/청바지색)
-            4: "#ffca28", // 금색 (기존 accent-color)
-            5: "#8b0000", // 진홍색 (다크 레드)
-            6: "#800080", // 자주색 (퍼플)
-            7: "#7cfc00"  // 풀색 (론 그린)
-        };
-
-        function renderCards(data) {
-            const container = document.getElementById('wiki-container');
-            container.innerHTML = '';
-
-            const keys = Object.keys(data).sort((a, b) => a - b);
+        /**
+         * 2. 업데이트 내역 제어 함수
+         */
+        function renderUpdates() {
+            const listContainer = document.getElementById('updateList');
             
-            if (keys.length === 0) {
-                container.innerHTML = `<p style="grid-column: 1/-1; text-align: center; color: #888;">검색 결과가 없습니다.</p>`;
+            // 데이터가 없을 경우 처리
+            if (updateData.length === 0) {
+                listContainer.innerHTML = `
+                    <div class="update-item" style="justify-content: center; color: #64748b; border: none; padding: 40px 0;">
+                        이곳에 업데이트 내역이 출력됩니다.
+                    </div>
+                `;
                 return;
             }
 
-            keys.forEach(id => {
-                const item = data[id];
-                // rarity 데이터의 첫 번째 숫자 추출 (기본값 1)
-                const rarityNum = (item.rarity && item.rarity[0]) ? item.rarity[0] : 1;
-                const borderColor = rarityColors[rarityNum] || "#444";
-
-                const card = document.createElement('div');
-                card.className = 'card';
-                
-                // ⭐ 테두리와 그림자에만 등급 색상 적용 (글자색은 건드리지 않음)
-                card.style.border = `2px solid ${borderColor}`;
-                card.style.boxShadow = `0 4px 15px ${borderColor}22`; // 22는 약 13%의 투명도
-
-                card.innerHTML = `
-                    <img src="./images/${item.img}" alt="${item.name}" onerror="this.src='https://via.placeholder.com/128'">
-                    <h3>${item.name}</h3>
-                    <img src="./tier/tier${rarityNum}.png" style="width: 60px; height: auto; margin-top: 5px;">
-                `;
-                
-                card.onclick = () => openModal(item, id);
-                container.appendChild(card);
-            });
+            // 데이터가 있을 경우 렌더링
+            listContainer.innerHTML = updateData.map(item => `
+                <div class="update-item">
+                    <span><span class="tag">${item.tag}</span>${item.text}</span>
+                    <span class="update-date">${item.date}</span>
+                </div>
+            `).join('');
         }
-
-        const checkLucky = (rarityArray) => {
-            if (!Array.isArray(rarityArray)) return false;
-            
-            // 배열의 원소 중 객체이면서 'l' 키를 가지고 있고, 그 값이 0보다 큰 게 있는지 확인
-            return rarityArray.some(element => 
-                typeof element === 'object' && 
-                element !== null && 
-                'l' in element && 
-                element.l > 0
-            );
-        };
-
-        function filterAndRender() {
-            const searchTerm = document.getElementById('search-input').value.toLowerCase().trim();
-            const specialFilter = document.getElementById('filter-option').value;
-            const rarityFilter = document.getElementById('rarity-filter').value; // 등급 값 가져오기
-            const luckyFilter = document.getElementById('lucky-filter').value; // 행운 필터 값
-            
-            const searchWords = searchTerm === "" ? [] : searchTerm.split(/\s+/);
-            const filteredData = {};
-
-            Object.keys(allData).forEach(id => {
-                const item = allData[id];
-                const itemLoreText = (item.lore || []).join(" ");
-                const itemRarityNum = (item.rarity && item.rarity[0]) ? item.rarity[0].toString() : "1";
-                const hasLucky = checkLucky(item.rarity);
-
-                let passSpecial = true;
-                if (specialFilter === "death") {
-                    passSpecial = itemLoreText.includes("\\uF13A");
-                } else if (specialFilter == "round") {
-                    passSpecial = itemLoreText.includes("\\uF139");
-                } else if (specialFilter == "level") {
-                    passSpecial = itemLoreText.includes("\\uF107");
-                } else if (specialFilter == "kill") {
-                    passSpecial = itemLoreText.includes("\\uF13B");
-                } else if (specialFilter == "onhit") {
-                    passSpecial = itemLoreText.includes("\\uF13C");
-                }
-
-                let passRarity = (rarityFilter === "all") || (itemRarityNum === rarityFilter);
-
-                // 3. ⭐ 행운 존재 여부 필터
-                let passLucky = true;
-                if (luckyFilter === "yes") {
-                    passLucky = hasLucky;     // 행운이 있는 것만
-                } else if (luckyFilter === "no") {
-                    passLucky = !hasLucky;    // 행운이 없는 것만
-                }
-
-                // 3. 검색어 필터
-                const itemName = item.name.toLowerCase();
-                const itemKeywords = (item.keywords || []).join(" ").toLowerCase();
-                const combinedText = `${itemName} ${itemLoreText.toLowerCase()} ${itemKeywords}`;
-                const passSearch = searchWords.length === 0 || searchWords.every(word => combinedText.includes(word));
-
-                // ⭐ 모든 조건(특성 + 등급 + 검색)이 참일 때만 노출
-                if (passSpecial && passRarity && passLucky && passSearch) {
-                    filteredData[id] = item;
-                }
-            });
-
-            renderCards(filteredData);
-        }
-
-        // 이벤트 리스너 등록
-        document.getElementById('search-input').addEventListener('input', filterAndRender);
-        document.getElementById('filter-option').addEventListener('change', filterAndRender);
-        document.getElementById('rarity-filter').addEventListener('change', filterAndRender);
-        document.getElementById('lucky-filter').addEventListener('change', filterAndRender);
-
-        function openModal(item, id) {
-            const detail = document.getElementById('detail-view');
-            const modalContent = document.getElementById('modal-content');
-            
-            // 1. 등급별 테두리 색상 적용 (기존에 만든 rarityColors가 있다면 활용)
-            const rarityNum = (item.rarity && item.rarity[0]) ? item.rarity[0] : 1;
-            if (modalContent) {
-                modalContent.style.borderColor = rarityColors[rarityNum] || "#444";
+        /**
+         * 3. 페이지 이동 함수
+         */
+        function navigateTo(url, isLocked = false) {
+            if (isLocked) {
+                alert("해당 기능은 현재 준비 중입니다. 이용에 불편을 드려 죄송합니다.");
+                return; // 함수 종료 (이동하지 않음)
             }
-
-            // 2. Lore 리스트 생성 및 아이콘 치환
-            const deathIcon = `<img src="./tier/death.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const roundIcon = `<img src="./tier/round.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const killIcon = `<img src="./tier/kill.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const levelIcon = `<img src="./tier/lv.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const onHitIcon = `<img src="./tier/onhit.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const cooldownIcon = `<img src="./tier/cooldown.png" style="width:18px; vertical-align:middle; margin-right:4px; margin-bottom: 4px;">`;
-            const pastelRed = "#ff6b6b";
             
-            const lores = item.lore ? item.lore.map(l => {
-                // 텍스트 내의 \uF13A를 deathIcon 태그로 치환 (g 플래그로 전체 치환)
-                let fixedText = l.replace(/\\uF13A/g, deathIcon).replace(/\\uF139/g, roundIcon).replace(/\\uF107/g, levelIcon).replace(/\\uF13B/g, killIcon).replace(/\\uF13C/g, onHitIcon).replace(/\\uF10A/g, cooldownIcon);
-                fixedText = fixedText.replace(/\{([^}]+)\}/g, (match, p1) => {
-                    let processed = p1;
-
-                    // 숫자(정수 또는 소수점 포함 숫자)만 있는지 확인하는 정규식
-                    const isPureNumber = /^-?\d+(\.\d+)?$/.test(p1.trim());
-
-                    // 키워드 한글화 매핑
-                    const keywordMap = {
-                        'playerlv':'레벨',
-                        'lv':'레벨',
-                        'maxhp':'최대체력',
-                        'hpheal':'체력재생',
-                        'maxmp':'최대마나',
-                        'mpheal':'마나재생',
-                        'attackspeed':'공격속도',
-                        'magicdefence':'마법저항력',
-                        'defence':'방어력',
-                        'luck':'행운',
-                        'str':'힘',
-                        'dex':'민첩',
-                        'int':'지능',
-                        'cooldownmul':'스킬가속',
-                        'cooldownspeed':'쿨다운회복',
-                        'timespeed':'시간가속',
-                        'movespeed':'이동속도',
-                        'delay':'선딜레이',
-                        'backdelay':'후딜레이',
-                        'bufftime':'버프지속시간',
-                        'skillcount':'스킬개수',
-                        'skillduration':'스킬지속시간',
-                        'skillrange':'스킬사거리',
-                        'skillsize':'스킬크기',
-                        'skillspeed':'스킬속도',
-                        'gold':'돈',
-                        'maxstat':'주스텟',
-                    };
-
-                    // 영문 키워드 치환
-                    Object.keys(keywordMap).forEach(key => {
-                        processed = processed.replace(new RegExp(key, 'g'), keywordMap[key]);
-                    });
-
-                    // 곱하기 기호 예쁘게 변경
-                    processed = processed.replace(/\*/g, " * ");
-
-                    // ⭐ 조건부 렌더링: 숫자만 있다면 괄호 없이, 수식이라면 괄호 포함
-                    const finalContent = isPureNumber ? processed : `(${processed})`;
-
-                    return `<span style="color: ${pastelRed}; font-weight: bold;">${finalContent}</span>`;
-                });
-                return `<li>${fixedText}</li>`;
-            }).join('') : '<li>설명이 없습니다.</li>';
-            
-            // 3. 내부 HTML 구성
-            detail.innerHTML = `
-                <div style="display: flex; gap: 30px; align-items: center; margin-bottom: 20px;">
-                    <img src="./images/${item.img}" style="width: 150px; border-radius: 10px;">
-                    <div style="text-align: left;">
-                        <h2 style="color: var(--accent-color); margin: 0; font-size: 1.8rem;">${item.name}</h2>
-                        <img src="./tier/tier${rarityNum}.png" style="width: 60px; margin-top: 10px;">
-                    </div>
-                </div>
-                <div class="lore-list" style="text-align: left;">
-                    <ul style="list-style: none; padding: 0; margin: 0; line-height: 1.8;">
-                        ${lores}
-                    </ul>
-                </div>
-            `;
-
-            document.getElementById('modal').style.display = 'flex';
+            console.log(`Navigating to: ${url}`);
+            window.location.href = url;
         }
 
-        function closeModal() {
-            document.getElementById('modal').style.display = 'none';
-        }
-
-        loadWiki();
+        // 페이지 로드 시 업데이트 내역 출력
+        window.onload = renderUpdates;
     </script>
 </body>
 </html>

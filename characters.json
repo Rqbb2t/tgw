@@ -1,0 +1,1199 @@
+{
+    "1": {
+        "name": "이자요이 \"사쿠야\"",
+        "img": "\\uE800",
+        "type": [
+            "원거리",
+            "물리",
+            "둥가둥가"
+        ],
+        "code": "sakuya",
+        "skills": [],
+        "hp": 10,
+        "updex": 1.4,
+        "number": 10000,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "cooldown": 0.15
+        },
+        "lore": [
+            "유도 도탄되는 수많은 탄막으로 공격하는 지속,포킹딜러"
+        ]
+    },
+    "2": {
+        "name": "이부키 \"스이카\"",
+        "img": "\\uE801",
+        "type": [
+            "근거리",
+            "물리",
+            "전사"
+        ],
+        "code": "suika",
+        "skills": [],
+        "hp": 32,
+        "upstr": 0.8,
+        "number": 10100,
+        "stat": {
+            "hp": 2,
+            "str": 0.5,
+            "defence": 0.3,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "그랩과 투사체파괴, 밀치기를 보유한 탱커"
+        ]
+    },
+    "3": {
+        "name": "이누바시리 \"모미지\"",
+        "type": [
+            "근거리",
+            "물리",
+            "난투가"
+        ],
+        "img": "\\uE802",
+        "code": "momiji",
+        "skills": [],
+        "hp": 18,
+        "updex": 0.8,
+        "number": 10200,
+        "stat": {
+            "hp": 1.2,
+            "dex": 1.4,
+            "attackspeed": 0.25,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "빠른 공격속도로 돌진하며 압박하는 지속딜러"
+        ]
+    },
+    "4": {
+        "name": "샤메이마루 \"아야\"",
+        "type": [
+            "원거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE803",
+        "code": "aya",
+        "skills": [],
+        "hp": 14,
+        "upint": 0.5,
+        "number": 10300,
+        "stat": {
+            "hp": 0.6,
+            "int": 1.2,
+            "skillsize": 0.1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "범위 에어본과 밀치기를 가진 포킹 딜러"
+        ]
+    },
+    "5": {
+        "name": "\"메디슨\" 멜랑콜리",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE804",
+        "code": "medisun",
+        "skills": [],
+        "hp": 12,
+        "upint": 1,
+        "number": 10400,
+        "stat": {
+            "hp": 0.6,
+            "mp": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "지속회복과 평타강화, 영역전개를 보유한 서포터"
+        ]
+    },
+    "6": {
+        "name": "아쳐",
+        "type": [
+            "원거리",
+            "물리",
+            "둥가둥가"
+        ],
+        "img": "\\uE805",
+        "code": "siro",
+        "skills": [],
+        "hp": 12,
+        "updex": 1,
+        "number": 20000,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "attackspeed": 0.3,
+            "cooldown": 0.04
+        },
+        "lore": [
+            "긴 사거리와 후반 포텐셜이 높은 포킹,지속딜러"
+        ]
+    },
+    "7": {
+        "name": "\"알퀘이드\" 브륜스터드",
+        "type": [
+            "근거리",
+            "물리",
+            "난투가"
+        ],
+        "img": "\\uE806",
+        "code": "aqid",
+        "skills": [],
+        "hp": 18,
+        "updex": 0.5,
+        "upint": 0.2,
+        "number": 20100,
+        "stat": {
+            "hp": 1.4,
+            "dex": 1,
+            "attakcspeed": 0.15,
+            "skillsize": 0.09,
+            "cooldown": 0.12
+        },
+        "lore": [
+            "흡혈과 연속공격으로 난전에서 강한 지속딜러"
+        ]
+    },
+    "8": {
+        "name": "\"오키타\" 소지",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE807",
+        "code": "soji",
+        "skills": [],
+        "hp": 14,
+        "updex": 1.1,
+        "number": 20200,
+        "stat": {
+            "hp": 0.3,
+            "dex": 1.5,
+            "skillrange": 0.012
+        },
+        "ultimate": 64,
+        "lore": [
+            "최속"
+        ]
+    },
+    "9": {
+        "name": "\"치르노\"",
+        "type": [
+            "근거리",
+            "물리",
+            "난투가"
+        ],
+        "img": "\\uE81E",
+        "code": "cirno",
+        "skills": [],
+        "hp": 18,
+        "upstr": 0.9,
+        "upint": -0.9,
+        "number": 11500,
+        "stat": {
+            "hp": 1.2,
+            "str": 1,
+            "cooldown": 0.12,
+            "skillsize": 0.05
+        },
+        "lore": [
+            "돌진과 평타캔슬로 순식간에 딜을 넣는 브루저"
+        ]
+    },
+    "10": {
+        "name": "\"토오사카\" 린",
+        "type": [
+            "원거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE809",
+        "code": "rin",
+        "skills": [],
+        "hp": 12,
+        "upint": 0.8,
+        "number": 20400,
+        "stat": {
+            "hp": 0.6,
+            "int": 1,
+            "skillsize": 0.06,
+            "cooldown": 0.14
+        },
+        "lore": [
+            "중후반을 책임지는 원거리 포킹 누커"
+        ]
+    },
+    "11": {
+        "name": "\"아르토리아\" 펜드래곤",
+        "type": [
+            "근거리",
+            "마법",
+            "전사"
+        ],
+        "img": "\\uE80A",
+        "code": "atra",
+        "skills": [],
+        "hp": 20,
+        "upstr": 0.3,
+        "upint": 0.6,
+        "number": 20500,
+        "stat": {
+            "hp": 3,
+            "int": 0.6,
+            "skillrange": 0.15,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "안티 메이지 탱커 혹은 근접지속딜러, 마법사로 전환이 자유로운 캐릭터"
+        ]
+    },
+    "12": {
+        "name": "\"잭\" 더 리퍼",
+        "type": [
+            "중거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE80B",
+        "code": "jack",
+        "skills": [],
+        "hp": 10,
+        "updex": 0.6,
+        "number": 20600,
+        "stat": {
+            "hp": 1.2,
+            "dex": 1,
+            "movespeed": 0.08,
+            "cooldown": 0.1
+        },
+        "ultimate": 70,
+        "lore": [
+            "탱커를 잘 잡는 출혈 암살자"
+        ]
+    },
+    "13": {
+        "name": "타타라 \"코가사\"",
+        "type": [
+            "근거리",
+            "마법",
+            "전사"
+        ],
+        "img": "\\uE80C",
+        "code": "kogasa",
+        "skills": [],
+        "hp": 22,
+        "upint": 1,
+        "number": 10500,
+        "stat": {
+            "hp": 2.5,
+            "int": 0.6,
+            "skillsize": 0.07,
+            "bufftime": 0.1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "공포와 적 피해감소로 교전을 흔드는 CC 탱커"
+        ]
+    },
+    "14": {
+        "name": "하쿠레이 \"레이무\"",
+        "type": [
+            "원거리",
+            "마법",
+            "둥가둥가"
+        ],
+        "img": "\\uE80D",
+        "code": "reimu",
+        "skills": [],
+        "hp": 12,
+        "upint": 1.2,
+        "number": 10600,
+        "stat": {
+            "hp": 1.2,
+            "int": 0.4,
+            "attackspeed": 0.5,
+            "skillrange": 0.07,
+            "cooldown": 0.2,
+            "skillduration": 0.1,
+            "cooldownspeed": 0.1
+        },
+        "lore": [
+            "후반에 빛을 보는 가장 타수가 많은 지속딜러"
+        ]
+    },
+    "15": {
+        "name": "\"이서문\"",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE80E",
+        "code": "shuwen",
+        "skills": [],
+        "hp": 14,
+        "upstr": 0.4,
+        "updex": 0.3,
+        "number": 20700,
+        "stat": {
+            "hp": 0.5,
+            "str": 1,
+            "dex": 0.4,
+            "attackspeed": 0.03,
+            "skillsize": 0.07,
+            "cooldown": 0.04
+        },
+        "ultimate": 75,
+        "lore": [
+            "은신과 강력한 한방으로 적을 마무리하는 암살자"
+        ]
+    },
+    "16": {
+        "name": "\"레이센\" 우동게인 이나바",
+        "type": [
+            "중거리",
+            "고정",
+            "둥가둥가"
+        ],
+        "img": "\\uE80F",
+        "code": "reisen",
+        "skills": [
+            {
+                "name": "총알탄",
+                "id": 10701,
+                "img": "\\uE04C",
+                "data": "reisen_sword",
+                "type": "basic",
+                "cooldown": "{0}",
+                "st": "attack",
+                "lore": [
+                    "{(10+lv*0.4)*skillrange}칸내 적에게 총알을 발사해 {0.3+dex*(lv*0.1+0.2)}물리 피해를 입힙니다"
+                ]
+            },
+            {
+                "name": "리플 비전",
+                "id": 10702,
+                "img": "\\uE04D",
+                "data": "reisen_card1",
+                "type": "normal",
+                "cooldown": "{20-lv}",
+                "st": "attack,cc",
+                "lore": [
+                    "{skillrange*(8+lv*2)}칸 날아가는 파동을 날려 {3+int*(0.3*lv+0.5)}마법피해를 입히고 {(2)*bufftime}초 침묵시킵니다",
+                    "시전시간: {1*(1-attackspeed)}(s)",
+                    "크기: {3*skillsize}(b)"
+                ]
+            },
+            {
+                "name": "「월면도탄(루나틱 더블)」",
+                "id": 10703,
+                "img": "\\uE04E",
+                "data": "reisen_card2",
+                "type": "normal",
+                "cooldown": "{32-lv*2}",
+                "st": "buff",
+                "lore": [
+                    "{(5+lv+dex*0.2)*bufftime}초간 평타가 추가로 시전됩니다"
+                ]
+            },
+            {
+                "name": "장시「적월하(인프라레드 문)」",
+                "id": 10704,
+                "img": "\\uE04F",
+                "data": "reisen_card3",
+                "type": "normal",
+                "cooldown": "{16-lv}",
+                "st": "move,buff,passive",
+                "lore": [
+                    "[\\uF13C]적중시 {dex*(0.2+lv*0.03)}, 대상 최대체력의 {0.5+int*(0.05+0.01*lv)}%의 고정 피해를 추가로 입힙니다",
+                    "[\\uF13C]적중시 쿨다운이 {0.4}초 감소합니다",
+                    "{(0.3+0.1*lv)*bufftime}초간 은신하며 이동속도가 {50+15*lv}% 빨라집니다"
+                ]
+            },
+            {
+                "name": "단시「초단뇌파(X-웨이브)」",
+                "id": 10705,
+                "img": "\\uE050",
+                "data": "reisen_card4",
+                "type": "sp",
+                "cooldown": "{180-lv*20}",
+                "st": "attack,buff",
+                "lore": [
+                    "{(10+lv*2)*skillrange}칸 앞까지 파동을 날리며 닿은 적에게 {(5+lv*2)*skillduration}초간 일반 공격을 시전하는 분신을 소환합니다",
+                    "[#]분신의 공격속도는 평타와 같습니다",
+                    "시전시간: {2*(1-attackspeed)}(s)",
+                    "크기: {4*skillsize}(b)"
+                ]
+            }
+        ],
+        "hp": 12,
+        "updex": 0.2,
+        "upint": 0.5,
+        "number": 10700,
+        "stat": {
+            "hp": 2,
+            "dex": 1.4,
+            "int": 0.2,
+            "cooldown": 0.04,
+            "attackspeed": 0.5
+        },
+        "lore": [
+            "짧은 은신을 보유한 안티탱커 지속딜러"
+        ]
+    },
+    "17": {
+        "name": "\"애비게일\" 윌리엄스",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE810",
+        "code": "abigail",
+        "skills": [],
+        "hp": 18,
+        "upint": 1,
+        "number": 20800,
+        "stat": {
+            "hp": 1,
+            "mp": 1,
+            "mpheal": 0.15,
+            "cooldown": 0.2,
+            "skillrange": 0.06
+        },
+        "lore": [
+            "최고의 단일회복과 적의 진입을 방해하는 유틸 서포터"
+        ]
+    },
+    "18": {
+        "name": "카자미 \"유카\"",
+        "type": [
+            "중거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE811",
+        "code": "yuka",
+        "skills": [],
+        "hp": 20,
+        "upint": 0.6,
+        "number": 10800,
+        "stat": {
+            "hp": 1.2,
+            "int": 1,
+            "skillsize": 0.1,
+            "cooldown": 0.2
+        },
+        "lore": [
+            "소환수 설치와 광역CC로 구역을 장악하는 지속딜러/누커"
+        ]
+    },
+    "19": {
+        "name": "레이우지 \"우츠호\"",
+        "type": [
+            "원거리",
+            "마법",
+            "둥가둥가"
+        ],
+        "img": "\\uE812",
+        "code": "okuu",
+        "skills": [],
+        "hp": 14,
+        "upint": 1,
+        "number": 10900,
+        "stat": {
+            "hp": 0.2,
+            "int": 0.5,
+            "skillsize": 1,
+            "attackspeed": 0.12
+        },
+        "lore": [
+            "가장 큰 스킬범위를 가진 유리대포 메이지"
+        ]
+    },
+    "20": {
+        "name": "콘파쿠 \"요우무\"",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE813",
+        "code": "yum",
+        "skills": [],
+        "hp": 14,
+        "updex": 0.8,
+        "upint": 0.5,
+        "number": 11000,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "cooldown": 0.2
+        },
+        "ultimate": 75,
+        "lore": [
+            "어디서든 나타날수 있고 체력이 적은 적을 잘잡는 암살자"
+        ]
+    },
+    "21": {
+        "name": "\"랜슬롯\" 듀 락",
+        "type": [
+            "근거리",
+            "물리",
+            "전사"
+        ],
+        "img": "\\uE814",
+        "code": "dulac",
+        "skills": [],
+        "hp": 24,
+        "upstr": 1,
+        "number": 20900,
+        "stat": {
+            "hp": 2,
+            "str": 0.8,
+            "cooldown": 0.2
+        },
+        "lore": [
+            "적의 강력한 투사체를 이용해 싸우는 CC탱커"
+        ]
+    },
+    "22": {
+        "name": "\"쿠훌린\"",
+        "type": [
+            "근거리",
+            "물리",
+            "마법",
+            "전사"
+        ],
+        "img": "\\uE815",
+        "code": "chulainn",
+        "skills": [],
+        "hp": 26,
+        "upstr": 0.8,
+        "upint": 0.2,
+        "number": 21000,
+        "stat": {
+            "hp": 2,
+            "str": 1,
+            "cooldown": 0.15
+        },
+        "lore": [
+            "적의 체력을 절반으로 만들며 치유를 방해하는 브루저"
+        ]
+    },
+    "23": {
+        "name": "사이교우지 \"유유코\"",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE816",
+        "code": "yuyuko",
+        "skills": [],
+        "hp": 16,
+        "upint": 1.2,
+        "number": 11100,
+        "stat": {
+            "hp": 1,
+            "mp": 2,
+            "int": 1,
+            "cooldown": 0.3,
+            "bufftime": 0.04
+        },
+        "lore": [
+            "공격 방어와 처형을 보유한 유틸 서포터"
+        ]
+    },
+    "24": {
+        "name": "\"세이란\"",
+        "type": [
+            "원거리",
+            "물리",
+            "마법사"
+        ],
+        "img": "\\uE817",
+        "code": "seiran",
+        "skills": [],
+        "hp": 10,
+        "updex": 0.6,
+        "upstr": 0.4,
+        "number": 11200,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "skillrange": 0.5,
+            "cooldown": 0.1,
+            "attackspeed": 0.04
+        },
+        "lore": [
+            "긴 사거리로 적을 저격하는 누커"
+        ]
+    },
+    "25": {
+        "name": "\"엘키두\"",
+        "type": [
+            "근거리",
+            "물리",
+            "전사"
+        ],
+        "img": "\\uE818",
+        "code": "enkidu",
+        "skills": [],
+        "hp": 16,
+        "upint": 0.3,
+        "updex": 0.3,
+        "upstr": 0.3,
+        "number": 21100,
+        "stat": {
+            "hp": 2,
+            "str": 0.4,
+            "dex": 0.4,
+            "int": 0.4,
+            "cooldown": 0.3,
+            "cooldownspeed": 0.2,
+            "defence": 0.1,
+            "magicdefence": 0.1,
+            "attackspeed": 0.3
+        },
+        "lore": [
+            "유연한 빌드전환과 다양한 전략을 사용할수 있는 만능형 캐릭터"
+        ]
+    },
+    "26": {
+        "name": "\"네로\" 클라우디우스",
+        "type": [
+            "근거리",
+            "물리",
+            "전사"
+        ],
+        "img": "\\uE819",
+        "code": "nero",
+        "skills": [],
+        "hp": 26,
+        "upstr": 0.5,
+        "upint": 0.2,
+        "number": 21200,
+        "stat": {
+            "hp": 2,
+            "str": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "위험한 적을 팀에게서 떨어트려 둘수있는 돌진형 탱커"
+        ]
+    },
+    "27": {
+        "name": "코메이지 \"코이시\"",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE81A",
+        "code": "coishi",
+        "skills": [],
+        "hp": 14,
+        "updex": 1,
+        "number": 11300,
+        "stat": {
+            "hp": 0.8,
+            "dex": 1.2,
+            "cooldown": 0.2,
+            "skillrange": 0.05,
+            "skillsize": 0.04
+        },
+        "lore": [
+            "아군, 적에게 빙의하여 기습하는 암살자"
+        ]
+    },
+    "28": {
+        "name": "\"료우기\" 시키",
+        "type": [
+            "근거리",
+            "물리",
+            "고정",
+            "암살자"
+        ],
+        "img": "\\uE81B",
+        "code": "ryogi",
+        "skills": [],
+        "hp": 16,
+        "updex": 1.2,
+        "number": 21300,
+        "stat": {
+            "hp": 1,
+            "dex": 1
+        },
+        "ultimate": 72,
+        "lore": [
+            "쿨다운 초기화와 연계, 처형으로 적을 도륙내는 지속딜러"
+        ]
+    },
+    "29": {
+        "name": "플랑드르 스칼렛",
+        "type": [
+            "근거리",
+            "마법",
+            "고정",
+            "난투가"
+        ],
+        "img": "\\uE81C",
+        "code": "flan",
+        "skills": [],
+        "hp": 24,
+        "upstr": 0.8,
+        "number": 11400,
+        "stat": {
+            "hp": 2,
+            "str": 1,
+            "cooldown": 0.1,
+            "attackspeed": 0.1
+        },
+        "lore": [
+            "마나대신 스택과 체력을 소모해 폭발적인 화력을 내는 전사"
+        ]
+    },
+    "30": {
+        "name": "\"이리야\"스필 폰 아인츠베른",
+        "type": [
+            "중거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE81D",
+        "code": "iriya",
+        "skills": [],
+        "hp": 10,
+        "upint": 0.8,
+        "number": 21400,
+        "stat": {
+            "mp": 2,
+            "int": 0.3
+        },
+        "lore": [
+            "마나를 체력처럼 이용하며 날아다니는 메이지"
+        ]
+    },
+    "31": {
+        "name": "잔다르크",
+        "type": [
+            "근거리",
+            "물리",
+            "지원가"
+        ],
+        "img": "\\uE808",
+        "code": "jan",
+        "skills": [],
+        "hp": 20,
+        "upstr": 0.4,
+        "upint": 0.6,
+        "number": 20300,
+        "stat": {
+            "hp": 1,
+            "int": 0.5,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "많은 유틸리티와 궁극기 회복을 보유한 서포터"
+        ]
+    },
+    "32": {
+        "name": "카와시로 \"니토리\"",
+        "type": [
+            "중거리",
+            "물리",
+            "둥가둥가"
+        ],
+        "img": "\\uE81F",
+        "code": "nitory",
+        "skills": [],
+        "hp": 16,
+        "updex": 1,
+        "number": 11600,
+        "stat": {
+            "hp": 1.2,
+            "dex": 1,
+            "attackspeed": 0.2
+        },
+        "lore": [
+            "입체기동장치를 보유한 평타 지속딜러"
+        ]
+    },
+    "33": {
+        "name": "에미야 \"키리츠구\"",
+        "type": [
+            "근거리",
+            "물리",
+            "마법",
+            "암살자"
+        ],
+        "img": "\\uE820",
+        "code": "kiritugu",
+        "skills": [],
+        "hp": 14,
+        "updex": 1,
+        "number": 21500,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "cooldown": 0.1,
+            "movespeed": 0.06
+        },
+        "lore": [
+            "가속하며 배후에서 적을 처리하는 전술 암살자"
+        ]
+    },
+    "34": {
+        "name": "\"키요히메\"",
+        "type": [
+            "근거리",
+            "물리",
+            "마법",
+            "전사"
+        ],
+        "img": "\\uE821",
+        "code": "kiyohime",
+        "skills": [],
+        "hp": 20,
+        "upstr": 0.7,
+        "upint": 0.2,
+        "number": 21600,
+        "stat": {
+            "hp": 2.5,
+            "int": 0.8,
+            "cooldown": 0.3
+        },
+        "lore": [
+            "추적과 속박으로 적을 묶고 태우는 탱커"
+        ]
+    },
+    "35": {
+        "name": "야쿠모 \"유카리\"",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE822",
+        "code": "yukari",
+        "skills": [],
+        "hp": 16,
+        "upint": 1,
+        "number": 11700,
+        "stat": {
+            "hp": 1,
+            "mp": 1,
+            "int": 0.5,
+            "cooldown": 0.3
+        },
+        "lore": [
+            "공간 이동과 위치 조작으로 전투를 보조하는 유틸 서포터"
+        ]
+    },
+    "36": {
+        "name": "\"시키에이키\" 야마자나두",
+        "type": [
+            "중거리",
+            "마법",
+            "난투가"
+        ],
+        "img": "\\uE823",
+        "code": "sikieiki",
+        "skills": [],
+        "hp": 22,
+        "upint": 0.5,
+        "number": 11800,
+        "stat": {
+            "hp": 1.6,
+            "int": 1,
+            "cooldown": 0.1,
+            "attackspeed": 0.25
+        },
+        "lore": [
+            "상황이 불리할수록 강해지는 브루저"
+        ]
+    },
+    "37": {
+        "name": "\"타마모노마에\"",
+        "type": [
+            "원거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE824",
+        "code": "tamamo",
+        "skills": [],
+        "hp": 12,
+        "upint": 1.4,
+        "number": 21700,
+        "stat": {
+            "hp": 1,
+            "int": 1,
+            "attackspeed": 0.1,
+            "skillsize": 0.07
+        },
+        "lore": [
+            "키 조합으로 다양한 스킬을 사용하는 만능형 메이지"
+        ]
+    },
+    "38": {
+        "name": "\"나나야\" 시키",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE825",
+        "code": "nanaya",
+        "skills": [],
+        "hp": 14,
+        "updex": 1,
+        "number": 21800,
+        "stat": {
+            "hp": 1,
+            "dex": 1,
+            "cooldown": 0.15
+        },
+        "ultimate": 75,
+        "lore": [
+            "스킬 연계와 은신, 콤보로 적을 교란하는 지속딜러"
+        ]
+    },
+    "39": {
+        "name": "후지와라노 \"모코우\"",
+        "type": [
+            "근거리",
+            "마법",
+            "전사"
+        ],
+        "img": "\\uE826",
+        "code": "mokou",
+        "skills": [],
+        "hp": 20,
+        "upstr": 0.7,
+        "number": 11900,
+        "stat": {
+            "hp": 1,
+            "hpheal": 1
+        },
+        "lore": [
+            "재생으로 버티며 적을 날려 교란하는 탱커"
+        ]
+    },
+    "40": {
+        "name": "요리가미 \"조온\"",
+        "type": [
+            "근거리",
+            "물리",
+            "전사"
+        ],
+        "img": "\\uE827",
+        "code": "joon",
+        "skills": [],
+        "hp": 24,
+        "upint": 0.7,
+        "number": 12000,
+        "stat": {
+            "hp": 1.5,
+            "int": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "적의 지갑을 탈탈 털어내는 CC 탱커"
+        ]
+    },
+    "41": {
+        "name": "\"잔다르크\" 얼터",
+        "type": [
+            "근거리",
+            "물리",
+            "마법",
+            "난투가"
+        ],
+        "img": "\\uE828",
+        "code": "jan2",
+        "skills": [],
+        "hp": 20,
+        "upstr": 0.7,
+        "upint": 0.3,
+        "number": 21900,
+        "stat": {
+            "hp": 2,
+            "str": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "적을 묶고 회복을 방해하는 브루저"
+        ]
+    },
+    "42": {
+        "name": "백모의 \"하산\"",
+        "type": [
+            "근거리",
+            "물리",
+            "암살자"
+        ],
+        "img": "\\uE829",
+        "code": "hasan",
+        "skills": [],
+        "hp": 14,
+        "updex": 0.7,
+        "number": 22000,
+        "stat": {
+            "hp": 1.5,
+            "dex": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "많은 분신과 은신으로 적을 교란하고 처리하는 암살자"
+        ]
+    },
+    "43": {
+        "name": "권왕 \"레이무\"",
+        "type": [
+            "근거리",
+            "물리",
+            "난투가"
+        ],
+        "img": "\\uE82A",
+        "code": "reimu2",
+        "skills": [],
+        "hp": 24,
+        "upstr": 0.4,
+        "upint": 0.3,
+        "number": 12100,
+        "stat": {
+            "hp": 1.5,
+            "str": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "단순하고 많은 CC를 보유한 근거리 지속딜러"
+        ]
+    },
+    "44": {
+        "name": "\"제갈공명\"",
+        "type": [
+            "중거리",
+            "지원가"
+        ],
+        "img": "\\uE82B",
+        "code": "zega",
+        "skills": [],
+        "hp": 12,
+        "upint": 0.5,
+        "number": 22100,
+        "stat": {
+            "hp": 1.5,
+            "int": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "공격 능력이 없는 유틸 서포터"
+        ]
+    },
+    "45": {
+        "name": "\"릴리스\"",
+        "type": [
+            "근거리",
+            "물리",
+            "고정",
+            "난투가"
+        ],
+        "img": "\\uE82C",
+        "code": "lilis",
+        "skills": [],
+        "hp": 18,
+        "updex": 0.5,
+        "upint": 0.3,
+        "number": 22200,
+        "stat": {
+            "hp": 1.5,
+            "dex": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "적당히 여러가지 할수있는 캐릭터"
+        ]
+    },
+    "46": {
+        "name": "키리사메 \"마리사\"",
+        "type": [
+            "원거리",
+            "마법",
+            "마법사"
+        ],
+        "img": "\\uE82D",
+        "code": "marisa",
+        "skills": [],
+        "hp": 16,
+        "upint": 1,
+        "number": 12200,
+        "stat": {
+            "hp": 0.8,
+            "skillcount": 0.04,
+            "int": 2,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "탄막은 파워다제☆"
+        ]
+    },
+    "47": {
+        "name": "\"대요정\"",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE82E",
+        "code": "die",
+        "skills": [],
+        "hp": 12,
+        "upint": 0.5,
+        "number": 12300,
+        "stat": {
+            "hp": 0.5,
+            "mp": 0.8,
+            "mpheal": 0.2,
+            "int": 0.5,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "요정을 소환해 아군을 회복하거나 엄호해주는 서포터"
+        ]
+    },
+    "48": {
+        "name": "\"헤라클래스\"",
+        "type": [
+            "중거리",
+            "마법",
+            "지원가"
+        ],
+        "img": "\\uE82E",
+        "code": "hera",
+        "skills": [],
+        "hidden": "true",
+        "hp": 22,
+        "upstr": 1,
+        "upint": -0.5,
+        "updex": -0.3,
+        "number": 22300,
+        "stat": {
+            "hp": 1.5,
+            "str": 1,
+            "cooldown": 0.1
+        },
+        "lore": [
+            "죽음을 극복하는 광전사"
+        ]
+    }
+}

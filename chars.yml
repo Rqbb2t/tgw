@@ -1,0 +1,609 @@
+
+range1:근거리
+range1_code:\uF117
+range1_lore:방어력 +25 마법저항력 +20
+range2:중거리
+range2_code:\uF118
+range2_lore:방어력 +15 마법저항력 +30
+range3:원거리
+range3_code:\uF119
+range3_lore:피해를 받을때 주변에 10칸내 아군이 있다면 5초간 보호막(캐릭터레벨*3, 라운드당 8%증가)을 얻습니다 [비전투시 쿨다운 15초]
+
+attacktype1:물리
+attacktype1_code:\uF12B
+attacktype2:마법
+attacktype2_code:\uF12C
+attacktype3:고정
+attacktype3_code:\uF12D
+
+chartype1:전사
+chartype1_lore:체력재생 0.2 최종 체력 10% 증가
+chartype1_code:\uF130
+chartype2:둥가둥가
+chartype2_lore:시작 힘/민/지 1 감소, 최대 스킬레벨 +1
+chartype2_code:\uF131
+chartype3:난투가
+chartype3_lore:시작 힘/민/지 1, 공격속도 20%증가
+chartype3_code:\uF132
+chartype4:마법사
+chartype4_lore:쿨다운회복 15%증가
+chartype4_code:\uF133
+chartype5:암살자
+chartype5_lore:이동속도 20%증가 마나재생 0.2 증가
+chartype5_code:\uF134
+chartype6:지원가
+chartype6_lore:골드 흭득량 10% 증가
+chartype6_code:\uF135
+
+type1:지정
+type1_code:\uF11A
+type2:범위지정
+type2_code:\uF11B
+type3:극딜
+type3_code:\uF11C
+type4:난사
+type4_code:\uF11D
+type5:버프
+type5_code:\uF11E
+type6:흡혈
+type6_code:\uF11F
+type7:반사
+type7_code:\uF120
+type8:회복
+type8_code:\uF121
+type9:실드
+type9_code:\uF122
+type10:디버프
+type10_code:\uF123
+type11:이동
+type11_code:\uF124
+type12:순간이동
+type12_code:\uF125
+type13:지속피해
+type13_code:\uF126
+
+//https://cafe.naver.com/sasmi/5140
+1:이자요이 "사쿠야"
+1_img:\uE800
+1_type:r3,a1,c2
+1_code:sakuya
+1_hp:10
+1_updex:1.4
+1_number:10000
+1_stat:hp:1,dex:1,cooldown:0.15
+1_lore1:유도 도탄되는 수많은 탄막으로 공격하는 지속,포킹딜러
+
+//https://cafe.naver.com/sasmi/5153
+2:이부키 "스이카"
+2_img:\uE801
+2_type:r1,a1,c1
+2_code:suika
+2_hp:32
+2_upstr:0.8
+2_number:10100
+2_stat:hp:2,str:0.5,defence:0.3,cooldown:0.1
+2_lore1:그랩과 투사체파괴, 밀치기를 보유한 탱커
+
+//https://cafe.naver.com/sasmi/5168
+3:이누바시리 "모미지"
+3_type:r1,a1,c3
+3_img:\uE802
+3_code:momiji
+3_hp:18
+3_updex:0.8
+3_number:10200
+3_stat:hp:1.2,dex:1.4,attackspeed:0.25,cooldown:0.1
+3_lore1:빠른 공격속도로 돌진하며 압박하는 지속딜러
+
+//https://cafe.naver.com/sasmi/5162
+4:샤메이마루 "아야"
+4_type:r3,a2,c4
+4_img:\uE803
+4_code:aya
+4_hp:14
+4_upint:0.5
+4_number:10300
+4_stat:hp:0.6,int:1.2,skillsize:0.1,cooldown:0.1
+4_lore1:범위 에어본과 밀치기를 가진 포킹 딜러
+
+//https://cafe.naver.com/sasmi/5163
+5:"메디슨" 멜랑콜리
+5_type:r2,a2,c6
+5_img:\uE804
+5_code:medisun
+5_hp:12
+5_upint:1
+5_number:10400
+5_stat:hp:0.6,mp:1,cooldown:0.1
+5_lore1:지속회복과 평타강화, 영역전개를 보유한 서포터
+
+//https://cafe.naver.com/sasmi/4774
+6:아쳐
+6_type:r3,a1,c2
+6_img:\uE805
+6_code:siro
+6_hp:12
+6_updex:1
+6_number:20000
+6_stat:hp:1,dex:1,attackspeed:0.3,cooldown:0.04
+6_lore1:긴 사거리와 후반 포텐셜이 높은 포킹,지속딜러
+
+//https://drive.usercontent.google.com/download?id=1lUcX7pLD_Ta9k5kCEOVGP0BlbjiQ-WKb&export=download&authuser=0
+7:"알퀘이드" 브륜스터드
+7_type:r1,a1,c3
+7_img:\uE806
+7_code:aqid
+7_hp:18
+7_updex:0.5
+7_upint:0.2
+7_number:20100
+7_stat:hp:1.4,dex:1,attakcspeed:0.15,skillsize:0.09,cooldown:0.12
+7_lore1:흡혈과 연속공격으로 난전에서 강한 지속딜러
+
+//https://cafe.naver.com/sasmi/4739
+8:"오키타" 소지
+8_type:r1,a1,c5
+8_img:\uE807
+8_code:soji
+8_hp:14
+8_updex:1.1
+8_number:20200
+8_stat:hp:0.3,dex:1.5,skillrange:0.012
+8_ultimate:64
+8_lore1:최속
+
+//https://cafe.naver.com/sasmi/1345
+9:"치르노"
+9_type:r1,a1,c3
+9_img:\uE81E
+9_code:cirno
+9_hp:18
+9_upstr:0.9
+9_upint:-0.9
+9_number:11500
+9_stat:hp:1.2,str:1,cooldown:0.12,skillsize:0.05
+9_lore1:돌진과 평타캔슬로 순식간에 딜을 넣는 브루저
+
+//https://sounds.spriters-resource.com/playstation_2/fateunlimitedcodes/asset/442798/
+10:"토오사카" 린
+10_type:r3,a2,c4
+10_img:\uE809
+10_code:rin
+10_hp:12
+10_upint:0.8
+10_number:20400
+10_stat:hp:0.6,int:1,skillsize:0.06,cooldown:0.14
+10_lore1:중후반을 책임지는 원거리 포킹 누커
+
+//https://cafe.naver.com/sasmi/4720
+11:"아르토리아" 펜드래곤
+11_type:r1,a2,c1
+11_img:\uE80A
+11_code:atra
+11_hp:20
+11_upstr:0.3
+11_upint:0.6
+11_number:20500
+11_stat:hp:3,int:0.6,skillrange:0.15,cooldown:0.1
+11_lore1:안티 메이지 탱커 혹은 근접지속딜러, 마법사로 전환이 자유로운 캐릭터
+
+//https://cafe.naver.com/sasmi/4967
+12:"잭" 더 리퍼
+12_type:r2,a1,c5
+12_img:\uE80B
+12_code:jack
+12_hp:10
+12_updex:0.6
+12_number:20600
+12_stat:hp:1.2,dex:1,movespeed:0.08,cooldown:0.1
+12_lore1:탱커를 잘 잡는 출혈 암살자
+12_ultimate:70
+
+//https://cafe.naver.com/sasmi/5187
+13:타타라 "코가사"
+13_type:r1,a2,c1
+13_img:\uE80C
+13_code:kogasa
+13_hp:22
+13_upint:1
+13_number:10500
+13_stat:hp:2.5,int:0.6,skillsize:0.07,bufftime:0.1,cooldown:0.1
+13_lore1:공포와 적 피해감소로 교전을 흔드는 CC 탱커
+
+//https://cafe.naver.com/sasmi/5133
+14:하쿠레이 "레이무"
+14_type:r3,a2,c2
+14_img:\uE80D
+14_code:reimu
+14_hp:12
+14_upint:1.2
+14_number:10600
+14_stat:hp:1.2,int:0.4,attackspeed:0.5,skillrange:0.07,cooldown:0.2,skillduration:0.1,cooldownspeed:0.1
+14_lore1:후반에 빛을 보는 가장 타수가 많은 지속딜러
+
+//https://cafe.naver.com/sasmi/4994
+15:"이서문"
+15_type:r1,a1,c5
+15_img:\uE80E
+15_code:shuwen
+15_hp:14
+15_upstr:0.4
+15_updex:0.3
+15_number:20700
+15_stat:hp:0.5,str:1,dex:0.4,attackspeed:0.03,skillsize:0.07,cooldown:0.04
+15_ultimate:75
+15_lore1:은신과 강력한 한방으로 적을 마무리하는 암살자
+
+//https://cafe.naver.com/sasmi/5158
+16:"레이센" 우동게인 이나바
+16_type:r2,a3,c2
+16_img:\uE80F
+16_code:reisen
+16_hp:12
+16_updex:0.2
+16_upint:0.5
+16_number:10700
+16_stat:hp:2,dex:1.4,int:0.2,cooldown:0.04,attackspeed:0.5
+16_lore1:짧은 은신을 보유한 안티탱커 지속딜러
+
+//https://cafe.naver.com/sasmi/5109
+17:"애비게일" 윌리엄스
+17_type:r2,a2,c6
+17_img:\uE810
+17_code:abigail
+17_hp:18
+17_upint:1
+17_number:20800
+17_stat:hp:1,mp:1,mpheal:0.15,cooldown:0.2,skillrange:0.06
+17_lore1:최고의 단일회복과 적의 진입을 방해하는 유틸 서포터
+
+//https://cafe.naver.com/sasmi/5164
+18:카자미 "유카"
+18_type:r2,a2,c4
+18_img:\uE811
+18_code:yuka
+18_hp:20
+18_upint:0.6
+18_number:10800
+18_stat:hp:1.2,int:1,skillsize:0.1,cooldown:0.2
+18_lore1:소환수 설치와 광역CC로 구역을 장악하는 지속딜러/누커
+
+//https://cafe.naver.com/sasmi/2109
+19:레이우지 "우츠호"
+19_type:r3,a2,c2
+19_img:\uE812
+19_code:okuu
+19_hp:14
+19_upint:1
+19_number:10900
+19_stat:hp:0.2,int:0.5,skillsize:1,attackspeed:0.12
+19_lore1:가장 큰 스킬범위를 가진 유리대포 메이지
+
+//https://cafe.naver.com/sasmi/2110
+20:콘파쿠 "요우무"
+20_type:r1,a1,c5
+20_img:\uE813
+20_code:yum
+20_hp:14
+20_updex:0.8
+20_upint:0.5
+20_number:11000
+20_stat:hp:1,dex:1,cooldown:0.2
+20_ultimate:75
+20_lore1:어디서든 나타날수 있고 체력이 적은 적을 잘잡는 암살자
+
+//https://cafe.naver.com/sasmi/5010
+21:"랜슬롯" 듀 락
+21_type:r1,a1,c1
+21_img:\uE814
+21_code:dulac
+21_hp:24
+21_upstr:1
+21_number:20900
+21_stat:hp:2,str:0.8,cooldown:0.2
+21_lore1:적의 강력한 투사체를 이용해 싸우는 CC탱커
+
+//https://cafe.naver.com/sasmi/4822
+22:"쿠훌린"
+22_type:r1,a1,a2,c1
+22_img:\uE815
+22_code:chulainn
+22_hp:26
+22_upstr:0.8
+22_upint:0.2
+22_number:21000
+22_stat:hp:2,str:1,cooldown:0.15
+22_lore1:적의 체력을 절반으로 만들며 치유를 방해하는 브루저
+
+//https://www.youtube.com/watch?v=cKCKjhzVP9A
+23:사이교우지 "유유코"
+23_type:r2,a2,c6
+23_img:\uE816
+23_code:yuyuko
+23_hp:16
+23_upint:1.2
+23_number:11100
+23_stat:hp:1,mp:2,int:1,cooldown:0.3,bufftime:0.04
+23_lore1:공격 방어와 처형을 보유한 유틸 서포터
+
+//https://cafe.naver.com/sasmi/5195
+24:"세이란"
+24_type:r3,a1,c4
+24_img:\uE817
+24_code:seiran
+24_hp:10
+24_updex:0.6
+24_upstr:0.4
+24_number:11200
+24_stat:hp:1,dex:1,skillrange:0.5,cooldown:0.1,attackspeed:0.04
+24_lore1:긴 사거리로 적을 저격하는 누커
+
+//https://cafe.naver.com/sasmi/4829
+25:"엘키두"
+25_type:r1,a1,c1
+25_img:\uE818
+25_code:enkidu
+25_hp:16
+25_upint:0.3
+25_updex:0.3
+25_upstr:0.3
+25_number:21100
+25_stat:hp:2,str:0.4,dex:0.4,int:0.4,cooldown:0.3,cooldownspeed:0.2,defence:0.1,magicdefence:0.1,attackspeed:0.3
+25_lore1:유연한 빌드전환과 다양한 전략을 사용할수 있는 만능형 캐릭터
+
+//https://cafe.naver.com/sasmi/4723
+26:"네로" 클라우디우스
+26_type:r1,a1,c1
+26_img:\uE819
+26_code:nero
+26_hp:26
+26_upstr:0.5
+26_upint:0.2
+26_number:21200
+26_stat:hp:2,str:1,cooldown:0.1
+26_lore1:위험한 적을 팀에게서 떨어트려 둘수있는 돌진형 탱커
+
+//https://cafe.naver.com/sasmi/5185
+27:코메이지 "코이시"
+27_type:r1,a1,c5
+27_img:\uE81A
+27_code:coishi
+27_hp:14
+27_updex:1
+27_number:11300
+27_stat:hp:0.8,dex:1.2,cooldown:0.2,skillrange:0.05,skillsize:0.04
+27_lore1:아군, 적에게 빙의하여 기습하는 암살자
+
+//https://cafe.naver.com/sasmi/4981
+28:"료우기" 시키
+28_type:r1,a1,a3,c5
+28_img:\uE81B
+28_code:ryogi
+28_hp:16
+28_updex:1.2
+28_number:21300
+28_stat:hp:1,dex:1
+28_ultimate:72
+28_lore1:쿨다운 초기화와 연계, 처형으로 적을 도륙내는 지속딜러
+
+//https://cafe.naver.com/sasmi/2117
+29:플랑드르 스칼렛
+29_type:r1,a2,a3,c3
+29_img:\uE81C
+29_code:flan
+29_hp:24
+29_upstr:0.8
+29_number:11400
+29_stat:hp:2,str:1,cooldown:0.1,attackspeed:0.1
+29_lore1:마나대신 스택과 체력을 소모해 폭발적인 화력을 내는 전사
+
+https://cafe.naver.com/sasmi/4939
+30:"이리야"스필 폰 아인츠베른
+30_type:r2,a2,c4
+30_img:\uE81D
+30_code:iriya
+30_hp:10
+30_upint:0.8
+30_number:21400
+30_stat:mp:2,int:0.3
+30_lore1:마나를 체력처럼 이용하며 날아다니는 메이지
+
+//https://cafe.naver.com/sasmi/5053
+31:잔다르크
+31_type:r1,a1,c6
+31_img:\uE808
+31_code:jan
+31_hp:20
+31_upstr:0.4
+31_upint:0.6
+31_number:20300
+31_stat:hp:1,int:0.5,cooldown:0.1
+31_lore1:많은 유틸리티와 궁극기 회복을 보유한 서포터
+
+//https://cafe.naver.com/sasmi/5167
+32:카와시로 "니토리"
+32_type:r2,a1,c2
+32_img:\uE81F
+32_code:nitory
+32_hp:16
+32_updex:1
+32_number:11600
+32_stat:hp:1.2,dex:1,attackspeed:0.2
+32_lore1:입체기동장치를 보유한 평타 지속딜러
+
+//https://cafe.naver.com/sasmi/4976
+33:에미야 "키리츠구"
+33_type:r1,a1,a2,c5
+33_img:\uE820
+33_code:kiritugu
+33_hp:14
+33_updex:1
+33_number:21500
+33_stat:hp:1,dex:1,cooldown:0.1,movespeed:0.06
+33_lore1:가속하며 배후에서 적을 처리하는 전술 암살자
+
+//https://cafe.naver.com/sasmi/4841
+34:"키요히메"
+34_type:r1,a1,a2,c1
+34_img:\uE821
+34_code:kiyohime
+34_hp:20
+34_upstr:0.7
+34_upint:0.2
+34_number:21600
+34_stat:hp:2.5,int:0.8,cooldown:0.3
+34_lore1:추적과 속박으로 적을 묶고 태우는 탱커
+
+//https://cafe.naver.com/sasmi/1337
+35:야쿠모 "유카리"
+35_type:r2,a2,c6
+35_img:\uE822
+35_code:yukari
+35_hp:16
+35_upint:1
+35_number:11700
+35_stat:hp:1,mp:1,int:0.5,cooldown:0.3
+35_lore1:공간 이동과 위치 조작으로 전투를 보조하는 유틸 서포터
+
+//https://cafe.naver.com/sasmi/5166
+36:"시키에이키" 야마자나두
+36_type:r2,a2,c3
+36_img:\uE823
+36_code:sikieiki
+36_hp:22
+36_upint:0.5
+36_number:11800
+36_stat:hp:1.6,int:1,cooldown:0.1,attackspeed:0.25
+36_lore1:상황이 불리할수록 강해지는 브루저
+
+//https://cafe.naver.com/sasmi/4917
+37:"타마모노마에"
+37_type:r3,a2,c4
+37_img:\uE824
+37_code:tamamo
+37_hp:12
+37_upint:1.4
+37_number:21700
+37_stat:hp:1,int:1,attackspeed:0.1,skillsize:0.07
+37_lore1:키 조합으로 다양한 스킬을 사용하는 만능형 메이지
+
+//https://drive.usercontent.google.com/download?id=1lUcX7pLD_Ta9k5kCEOVGP0BlbjiQ-WKb&export=download&authuser=0
+38:"나나야" 시키
+38_type:r1,a1,c5
+38_img:\uE825
+38_code:nanaya
+38_hp:14
+38_updex:1
+38_number:21800
+38_stat:hp:1,dex:1,cooldown:0.15
+38_ultimate:75
+38_lore1:스킬 연계와 은신, 콤보로 적을 교란하는 지속딜러
+
+//https://cafe.naver.com/sasmi/2106
+39:후지와라노 "모코우"
+39_type:r1,a2,c1
+39_img:\uE826
+39_code:mokou
+39_hp:20
+39_upstr:0.7
+39_number:11900
+39_stat:hp:1,hpheal:1
+39_lore1:재생으로 버티며 적을 날려 교란하는 탱커
+
+//https://cafe.naver.com/sasmi/5203
+40:요리가미 "조온"
+40_type:r1,a1,c1
+40_img:\uE827
+40_code:joon
+40_hp:24
+40_upint:0.7
+40_number:12000
+40_stat:hp:1.5,int:1,cooldown:0.1
+40_lore1:적의 지갑을 탈탈 털어내는 CC 탱커
+
+41:"잔다르크" 얼터
+41_type:r1,a1,a2,c3
+41_img:\uE828
+41_code:jan2
+41_hp:20
+41_upstr:0.7
+41_upint:0.3
+41_number:21900
+41_stat:hp:2,str:1,cooldown:0.1
+41_lore1:적을 묶고 회복을 방해하는 브루저
+
+//https://cafe.naver.com/sasmi/4966
+42:백모의 "하산"
+42_type:r1,a1,c5
+42_img:\uE829
+42_code:hasan
+42_hp:14
+42_updex:0.7
+42_number:22000
+42_stat:hp:1.5,dex:1,cooldown:0.1
+42_lore1:많은 분신과 은신으로 적을 교란하고 처리하는 암살자
+
+43:권왕 "레이무"
+43_type:r1,a1,c3
+43_img:\uE82A
+43_code:reimu2
+43_hp:24
+43_upstr:0.4
+43_upint:0.3
+43_number:12100
+43_stat:hp:1.5,str:1,cooldown:0.1
+43_lore1:단순하고 많은 CC를 보유한 근거리 지속딜러
+
+44:"제갈공명"
+44_type:r2,c6
+44_img:\uE82B
+44_code:zega
+44_hp:12
+44_upint:0.5
+44_number:22100
+44_stat:hp:1.5,int:1,cooldown:0.1
+44_lore1:공격 능력이 없는 유틸 서포터
+
+45:"릴리스"
+45_type:r1,a1,a3,c3
+45_img:\uE82C
+45_code:lilis
+45_hp:18
+45_updex:0.5
+45_upint:0.3
+45_number:22200
+45_stat:hp:1.5,dex:1,cooldown:0.1
+45_lore1:적당히 여러가지 할수있는 캐릭터
+
+46:키리사메 "마리사"
+46_type:r3,a2,c4
+46_img:\uE82D
+46_code:marisa
+46_hp:16
+46_upint:1
+46_number:12200
+46_stat:hp:0.8,skillcount:0.04,int:2,cooldown:0.1
+46_lore1:탄막은 파워다제☆
+
+47:"대요정"
+47_type:r2,a2,c6
+47_img:\uE82E
+47_code:die
+47_hp:12
+47_upint:0.5
+47_number:12300
+47_stat:hp:0.5,mp:0.8,mpheal:0.2,int:0.5,cooldown:0.1
+47_lore1:요정을 소환해 아군을 회복하거나 엄호해주는 서포터
+
+48:"헤라클래스"
+48_type:r2,a2,c6
+48_img:\uE82E
+48_code:hera
+48_hidden:true
+48_hp:22
+48_upstr:1
+48_upint:-0.5
+48_updex:-0.3
+48_number:22300
+48_stat:hp:1.5,str:1,cooldown:0.1
+48_lore1:죽음을 극복하는 광전사
